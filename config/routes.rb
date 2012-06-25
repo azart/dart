@@ -1,4 +1,10 @@
 Dart::Application.routes.draw do
+  resources :units
+
+  resources :welcomes
+
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

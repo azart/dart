@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  locale: MyString
+  title: MyString
+  parent_id: 1
+  description: MyText
+  content: MyText
+  layout: MyString
+  short_url: MyString
+  seo_title: MyString
+  seo_keywords: MyString
+  seo_description: MyString
+
+two:
+  locale: MyString
+  title: MyString
+  parent_id: 1
+  description: MyText
+  content: MyText
+  layout: MyString
+  short_url: MyString
+  seo_title: MyString
+  seo_keywords: MyString
+  seo_description: MyString
