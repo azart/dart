@@ -26,6 +26,15 @@
 </head>
 
 <body>
-<%= yield %>
+<div id="container">
+
+<%= render "layouts/header" %>
+<%= render "layouts/sidebar" %>
+<%= render "layouts/info" %>
+<%= render "layouts/footer" %>
+<%= render "layouts/slider" %>
+</div>
+
+<%#= yield %>
 </body>
 </html>
