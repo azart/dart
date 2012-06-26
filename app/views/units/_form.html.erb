@@ -1,61 +1,77 @@
-<%= form_for(@unit) do |f| %>
-  <% if @unit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+<%= form_for(@unit, :html => {:multipart => true}) do |f| %>
+    <% if @unit.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
 
-      <ul>
-      <% @unit.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @unit.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :locale %><br />
-    <%= f.text_field :locale %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :parent_id %><br />
-    <%= f.number_field :parent_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :layout %><br />
-    <%= f.text_field :layout %>
-  </div>
     <div class="field">
-      <%= f.label :parent_order %><br />
-      <%= f.number_field :parent_order %>
+      <%= f.label :locale %>
+      <br/>
+      <%= f.collection_select(:locale, Language.collection, :cut, :name, :prompt => false) %>
     </div>
     <div class="field">
-    <%= f.label :short_url %><br />
-    <%= f.text_field :short_url %>
-  </div>
-  <div class="field">
-    <%= f.label :seo_title %><br />
-    <%= f.text_field :seo_title %>
-  </div>
-  <div class="field">
-    <%= f.label :seo_keywords %><br />
-    <%= f.text_field :seo_keywords %>
-  </div>
-  <div class="field">
-    <%= f.label :seo_description %><br />
-    <%= f.text_field :seo_description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <%= f.label :title %>
+      <br/>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :parent_id %>
+      <br/>
+      <%= f.number_field :parent_id %>
+    </div>
+    <div class="field">
+      <%= f.label :welcome_slider %>
+      <br/>
+      <%= f.check_box :welcome_slider %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <br/>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :content %>
+      <br/>
+      <%= f.text_area :content %>
+    </div>
+    <div class="field">
+      <%= f.label :layout %>
+      <br/>
+      <%= f.collection_select :layout, Layout.collection, :cut, :name, :promt => false %>
+    </div>
+    <div class="field">
+      <%= f.label :unit_order %>
+      <br/>
+      <%= f.number_field :unit_order %>
+    </div>
+    <div class="field">
+      <%= f.label :short_url %>
+      <br/>
+      <%= f.text_field :short_url %>
+    </div>
+    <div class="field">
+      <%= f.label :seo_title %>
+      <br/>
+      <%= f.text_field :seo_title %>
+    </div>
+    <div class="field">
+      <%= f.label :seo_keywords %>
+      <br/>
+      <%= f.text_field :seo_keywords %>
+    </div>
+    <div class="field">
+      <%= f.label :seo_description %>
+      <br/>
+      <%= f.text_field :seo_description %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

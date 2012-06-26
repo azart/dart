@@ -3,12 +3,12 @@ class Language
   attr_accessor :name
   attr_accessor :cut
 
-  def self.collection(with_all_regions = false)
+  def self.collection()
     list = [
         Language.new(:name => 'En', :cut => 'en'),
         Language.new(:name => 'Ru', :cut => 'ru')
     ]
-    list = [Language.new(:name => 'All regions', :cut => '')] + list if with_all_regions
+    #list = [Language.new(:name => 'All regions', :cut => '')] + list if with_all_regions
     list
   end
 

@@ -4,6 +4,7 @@ class CreateUnits < ActiveRecord::Migration
       t.string :locale
       t.string :title
       t.integer :parent_id
+      t.boolean :welcome_slider
       t.text :description
       t.text :content
       t.string :layout
@@ -20,5 +21,27 @@ class CreateUnits < ActiveRecord::Migration
     add_index :units, :short_url
   end
 
-  Unit.create()
+  Unit.create (:locale => "ru", :title => "Компания", :parent_id => nil, :unit_order => 0, :layout => ""
+  Unit.create (:locale => "ru", :title => "О нас", :parent_id => ""
+  Unit.create (:locale => "ru", :title => "Производство
+  Unit.create (:locale => "ru", :title => "Награды и отзывы
+  Unit.create (:locale => "ru", :title => "Лицензии
+  Unit.create (:locale => "ru", :title => "Наши партнеры
+  Unit.create (:locale => "ru", :title => "Вакансии
+
+
+
+
+
+  КОМПАНИЯ
+
+  О нас
+  Производство
+  Награды и отзывы
+  Лицензии
+  Наши партнеры
+  Вакансии
+
+
+
 end
