@@ -1,9 +1,17 @@
 Dart::Application.routes.draw do
-  resources :units
 
-  resources :welcomes
+  match '/access_denied' => 'error#access_denied', :as => :access_denied
+  match '/not_found' => 'error#not_found', :as => :not_found
 
   devise_for :users
+  match '/language/:lang_cut' => 'welcomes#set_lang'
+
+  scope '/:locale', :locale => /en|ru/ do
+    resources :units
+    resources :welcomes
+  end
+
+  root :to => 'welcomes#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -8,14 +8,17 @@
   <meta name="keywords" content="<%= yield(:keywords) %>">
 
   <%= stylesheet_link_tag :application %>
+
+<!--[if IE]>
   <![if lte IE 7]>
   <%= stylesheet_link_tag :ie7 %>
   <![endif]>
   <![if lte IE 8]>
   <%= stylesheet_link_tag :ie8 %>
   <![endif]>
+<![endif]-->
 
-  <% if controller.name == :welcomes %>
+  <% if controller_name == "welcomes" %>
       <%= javascript_include_tag :welcome %>
   <% else %>
       <%= javascript_include_tag :application %>

@@ -19,7 +19,7 @@ $(function () {
         }
     });
 
-    menuWrapperTop = $(".menu_wrapper").offset().top;
+//    menuWrapperTop = $(".menu_wrapper").offset().top;
     menuWrapperRealHeight = getRealMenuHeight();
     maxMargin = menuWrapperRealHeight - 400;
     $(".menu_wrapper").mousemove(function (e) {

@@ -4,24 +4,25 @@ class Unit < ActiveRecord::Base
   #belongs_to :author, :class_name => 'User'
   belongs_to :unit, :foreign_key => :parent_id
   has_many :units, :foreign_key => :parent_id, :order => 'unit_order'
-  has_many :unit_images
-  has_many :unit_files
+  #has_many :unit_images
+  #has_many :unit_files
 
-  validates_presence_of :title, :locale, :short_url
+  validates_presence_of :title, :locale#, :short_url
 
   attr_accessible :locale, :title, :parent_id, :welcome_slider, :description, :content, :layout, :unit_order, :short_url, :seo_title, :seo_keywords, :seo_description, :created_at, :preview_id
 
   attr_writer :preview_id
   attr_reader :preview_id
 
-  scope :main_menu, where(:parent_id => nil).order(:unit_order)
+  #scope :main_menu, where(:parent_id => nil).order(:unit_order)
+  scope :main_menu, lambda { |locale| where(:parent_id => nil).where("locale = ?", locale).order(:unit_order) }
 
   #default_scope order("created_at DESC")
   #scope :side_bar, order("created_at DESC").limit(3)
   #scope :side_bar, lambda { |post| where("id <> ?", post.id).order("created_at DESC").limit(3) }
 
   before_save :generate_short_url
-  after_create :update_attachements
+  #after_create :update_attachements
 
   def initialize(*args)
     super
@@ -34,15 +35,15 @@ class Unit < ActiveRecord::Base
 
   private
 
-  def update_attachements
-    unless self.preview_id.nil?
-      images = UnitImage.find_all_by_post_id(self.preview_id)
-      images.each do |image|
-        image.post_id = self.id
-        image.save
-      end
-    end
-  end
+  #def update_attachements
+  #  unless self.preview_id.nil?
+  #    images = UnitImage.find_all_by_post_id(self.preview_id)
+  #    images.each do |image|
+  #      image.post_id = self.id
+  #      image.save
+  #    end
+  #  end
+  #end
 
   def generate_short_url
     self.short_url = Russian.transliterate(self.title.downcase.gsub(' ', '-')) if self.short_url.blank? && !self.title.blank?

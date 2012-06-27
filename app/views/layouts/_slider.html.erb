@@ -1,6 +1,5 @@
 <div id="slider">
-  <div class="slide slide1 cs-activeSlide"> <img src="images/1.jpg"  alt="slide1" width="" height="" /> </div>
-  <div class="slide slide1"> <img src="images/2.jpg" alt="slide2" width="" height="" /> </div>
-  <div class="slide slide1"> <img src="images/3.jpg"  alt="slide3" width="" height="" /> </div>
-  <div class="slide slide1"> <img src="images/4.jpg" alt="slide4" width="" height="" /> </div>
-</div><!--end slider-->
+  <% [1, 2, 3, 4, 5].each do |i| %>
+      <div class="slide slide<%= i %> <%= "cs-activeSlide" if i == 1 %>"><%= image_tag "#{i}.jpg", :alt => "slide#{i}" %></div>
+  <% end %>
+</div>
