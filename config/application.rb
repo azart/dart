@@ -55,5 +55,7 @@ module Dart
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.assets.precompile += ['editor.js','welcome.js' ,'ie7.css', 'ie8.css']
   end
 end
