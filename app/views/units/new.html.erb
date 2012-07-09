@@ -1,5 +1,32 @@
-<h1>New unit</h1>
+<div id="sidebar" class="edit_form">
+    <%= render 'form' %>
+</div><!--end sidebar-->
 
-<%= render 'form' %>
+<%= render "layouts/footer" %>
 
-<%= link_to 'Back', units_path %>
+<!--<h1>Editing unit</h1>-->
+<%#= link_to 'Show', @unit %>
+<%#= link_to 'Back', units_path %>
+
+<script type="text/javascript">
+    $(function ChangeWidthHeight() {
+        if ($(window).height() > 626) {
+            $('#container').css("height", +$(window).height() + 'px');
+            $('#container').css("width", +$(window).width() + 'px');
+            $('#sidebar').css("height", +$(window).height() + 'px');
+            $('#slider img').css("height", +$(window).height() + 'px');
+            $('#slider img').css("width", +$(window).width() + 'px');
+        }
+    });
+    $(function ChangeWidthHeight() {
+        $(window).resize(function () {
+            if ($(window).height() > 626) {
+                $('#container').css("height", +$(window).height() + 'px');
+                $('#sidebar').css("height", +$(window).height() + 'px');
+                $('#slider img').css("height", +$(window).height() + 'px');
+            }
+            $('#container').css("width", +$(window).width() + 'px');
+            $('#slider img').css("width", +$(window).width() + 'px');
+        });
+    });
+</script>

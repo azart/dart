@@ -1,7 +1,17 @@
 class WelcomesController < ApplicationController
+  load_and_authorize_resource
+
+  def set_lang
+    raise NotFound unless Language.include?(params[:lang_cut])
+    redirect_to "/?locale=#{params[:lang_cut]}"
+  end
+
   # GET /welcomes
   # GET /welcomes.json
   def index
+    @last_news = Unit.where(:locale => I18n.locale).where(:parent_id => 32).order("created_at DESC").first
+    @top = Unit.where(:welcome_slider => true).limit(5);
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @welcomes }

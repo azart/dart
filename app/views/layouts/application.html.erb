@@ -7,9 +7,19 @@
   <meta name="description" content="<%= yield(:description) %>">
   <meta name="keywords" content="<%= yield(:keywords) %>">
 
+  <% if controller_name == "welcomes" %>
+      <%= javascript_include_tag :welcome %>
+  <% else %>
+      <%= javascript_include_tag :application %>
+  <% end %>
+
+  <%= csrf_meta_tag
+  %>
+  <%= yield(:head) %>
+
   <%= stylesheet_link_tag :application %>
 
-<!--[if IE]>
+  <!--[if IE]>
   <![if lte IE 7]>
   <%= stylesheet_link_tag :ie7 %>
   <![endif]>
@@ -18,23 +28,19 @@
   <![endif]>
 <![endif]-->
 
-  <% if controller_name == "welcomes" %>
-      <%= javascript_include_tag :welcome %>
-  <% else %>
-      <%= javascript_include_tag :application %>
-  <% end %>
-
-  <%= csrf_meta_tag %>
-  <%= yield(:head) %>
 </head>
 
 <body>
+
+<% unless notice.nil? %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+
 <div id="container">
   <%= render "layouts/header" %>
 
   <%= yield %>
 
-  <%= render "layouts/footer" %>
 </div>
 
 </body>

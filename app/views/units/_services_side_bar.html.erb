@@ -1,0 +1,16 @@
+<div id="sidebar">
+  <div class="description">
+    <h1 class="service_title"><%= @unit.title %><%= render "units/admin_panel", :target => @unit %></h1>
+    <div class="top"></div>
+    <div class="menu_wrapper">
+      <ul class="menu_about">
+        <% @unit.units.each do |unit| %>
+            <li <%= "class='current'" if @unit && unit == @unit %>>
+              <%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => "blue" %>
+            </li>
+        <% end %>
+      </ul>
+      <div class="bottom"></div>
+    </div><!--end menu_wrapper-->
+  </div><!--end description-->
+</div><!--end sidebar-->

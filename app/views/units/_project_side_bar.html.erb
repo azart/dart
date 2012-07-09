@@ -1,0 +1,28 @@
+<div id="sidebar">
+  <div class="description portfolio_title">
+    <h1><%= @unit.super_unit.title %><%= link_to "", unit_by_short_url_path(@unit.super_unit.short_url), :class => "back back_3" %></h1>
+
+    <div class="top"></div>
+    <div class="menu_wrapper">
+      <ul class="menu_about">
+        <li>
+          <%= link_to raw("<span>#{@unit.title}</span>"), unit_by_short_url_path(@unit.short_url), :class => "portfolio" %>
+          <div class="news_list">
+            <div class="border_right">
+              <% @unit.unit_images.each do |unit_image| %>
+                  <%= link_to image_tag(unit_image.image.url(:preview_item), :width => 213, :height => 81), unit_image.image.url(), :title => "unit_image.title" %>
+              <% end %>
+              <span><%= @unit.created_at.strftime("%d.%m.%Y") %></span>
+
+              <p><%= raw @unit.content %></p>
+              <%= render "units/admin_panel", :target => @unit %>
+            </div>
+          </div>
+        </li>
+        <!--<li><a href="#" class="portfolio"><span>2012</span></a></li>-->
+        <!--<li class="no_border"><a href="#" class="portfolio"><span>2011</span></a></li>-->
+      </ul>
+      <div class="bottom"></div>
+    </div>
+  </div>
+</div>

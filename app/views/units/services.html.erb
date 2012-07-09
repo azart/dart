@@ -1,0 +1,45 @@
+<%= render "units/services_side_bar" %>
+
+<div class="info info_service">
+  <div class="title_info">
+    ROVESE Group
+  </div><!--end title_info-->
+  <a href="#" class="more">Подробнее</a>
+</div><!--end info-->
+
+
+<%= link_to 'Edit', edit_unit_path(@unit) %> |
+<%= link_to 'Back', units_path %>
+
+<%= render "layouts/footer" %>
+
+<div id="slider">
+  <%= image_tag "1.jpg", :width => 1200, :height => 700 %>
+</div>
+
+
+<script type="text/javascript">
+    $(function ChangeWidthHeight() {
+        if ($(window).height() > 626) {
+
+        }
+        $('#container').css("height", +$(window).height()+'px');
+        $('#sidebar').css("height", +$(window).height()+'px');
+        $('#slider img').css("height", +$(window).height()+'px');
+        $('#container').css("width",+$(window).width()+'px');
+        $('#slider img').css("width",+$(window).width()+'px');
+
+    });
+    $(function ChangeWidthHeight() {
+        $(window).resize(function () {
+            if ($(window).height() > 626) {
+                $('#container').css("height", +$(window).height()+'px');
+                $('#sidebar').css("height", +$(window).height()+'px');
+                $('#slider img').css("height", +$(window).height()+'px');
+
+            }
+            $('#container').css("width",+$(window).width()+'px');
+            $('#slider img').css("width",+$(window).width()+'px');
+        });
+    });
+</script>

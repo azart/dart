@@ -7,7 +7,7 @@ class Ability
          can :manage, :all
        else
          can :read, :all
-         can :create, Feedback
+         #can :create, Feedback
        end
   end
 end

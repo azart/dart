@@ -1,0 +1,38 @@
+<div id="sidebar">
+  <div class="description portfolio_title">
+    <h1><%= @unit.title %><%= render "units/admin_panel", :target => @unit %></h1>
+    <div class="top"></div>
+    <div class="menu_wrapper">
+      <ul class="menu_about">
+        <% @unit.units.each do |unit| %>
+            <li <%= "class='current'" if unit == @unit.units.first %>>
+              <%= link_to raw("<span>#{unit.title}</span>"), "", :class => "portfolio" %>
+              <% unless unit.units.empty? %>
+                  <div class="news_list">
+                    <div class="border_right">
+                      <ul>
+                        <% unit.units.each do |sunit| %>
+                            <li>
+                              <%= link_to sunit.title, unit_by_short_url_path(sunit.short_url) %>
+                              <% unless sunit.units.empty? %>
+                                  <ul>
+                                    <% sunit.units.each do |ssunit| %>
+                                        <li>
+                                          <%= link_to ssunit.title, unit_by_short_url_path(ssunit.short_url) %>
+                                        </li>
+                                    <% end %>
+                                  </ul>
+                              <% end %>
+                            </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="bottom"></div>
+  </div>
+</div>

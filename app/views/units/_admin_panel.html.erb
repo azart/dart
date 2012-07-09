@@ -1,0 +1,21 @@
+<% if can?(Unit, :edit) || can?(Unit, :destroy) || can?(Unit, :create) %>
+    <div class="panel-admin">
+      <ul>
+        <% if can?(Unit, :edit) %>
+            <li class="ui-corner-all">
+              <%= link_to t('backend.actions.edit'), edit_unit_path(target), :class => "ui-icon ui-icon-pencil", :title => t('backend.actions.edit') %>
+            </li>
+        <% end %>
+        <% if can?(Unit, :destroy) %>
+            <li class="ui-corner-all">
+              <%= link_to(t('backend.actions.destroy'), target, :class => "ui-icon ui-icon-cart", :confirm => t('backend.actions.are_you_sure'), :method => :delete, :title => t('backend.actions.destroy')) %>
+            </li>
+        <% end %>
+        <% if can?(Unit, :create) %>
+            <li class="ui-corner-all">
+              <%= link_to t('helpers.submit.create'), "/#{I18n.locale}/units/new/#{target.id}", :class => "ui-icon ui-icon-plus", :title => t('helpers.submit.create') %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

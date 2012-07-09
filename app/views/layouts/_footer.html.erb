@@ -1,24 +1,16 @@
 <div id="footer">
   <ul>
-    <% @main_menu.each do |unit| %>
-        <li><%= link_to "<span>#{unit.title}</span>", unit %></li>
+    <% @main_menu.each_with_index do |unit, i| %>
+        <li <%= "class='current'" if @unit && unit == @unit %>><%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => ("menu_#{i}" unless i == 0) %></li>
     <% end %>
-
-    <!--<li><a href="about.html" class="menu"><span>Компания</span></a></li>-->
-    <!--<li><a href="service.html" class="menu_1"><span>Услуги</span></a></li>-->
-    <!--<li><a href="portfolio.html" class="menu_2"><span>ПОРТФОЛИО</span></a></li>-->
-    <!--<li><a href="#" class="menu_3"><span>клиенты</span></a></li>-->
-    <!--<li><a href="news.html" class="menu_4"><span>Новости</span></a></li>-->
-    <!--<li class="last"><a href="order.html" class="menu_5"><span>Оставить заявку</span></a></li>-->
-    <!--<li class="last"><a href="contact.html" class="menu_6 no_bg"><span>Контакты</span></a></li>-->
   </ul>
   <p>© Copyright 2012 3D ART</p>
 
   <div class="social">
-    <p>Следите за нами</p>
-    <a href="#"><img src="images/vk.png" width="19" height="20" alt=""/></a>
-    <a href="#"><img src="images/face.png" width="18" height="20" alt=""/></a>
-    <a href="#"><img src="images/tw.png" width="18" height="20" alt=""/></a>
+    <p>Следите за нами в социальных сетях</p>
+
+    <%= link_to image_tag("vk.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
+    <%= link_to image_tag("face.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
+    <%= link_to image_tag("tw.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
   </div>
-  <!--end social-->
 </div><!--end footer-->

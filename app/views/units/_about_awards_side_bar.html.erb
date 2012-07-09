@@ -1,0 +1,18 @@
+
+<div id="sidebar_license">
+  <div class="description about_title">
+  <h1><%= @unit.super_unit.title %><%= link_to "", unit_by_short_url_path(@unit.super_unit.short_url), :class => "back" %></h1>
+  <div class="top"></div>
+    <div class="menu_wrapper">
+      <ul class="menu_about">
+        <% @unit.units.each do |unit| %>
+            <li <%= "class='current'" if @unit && unit == @unit %>>
+              <%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => "red" %>
+            </li>
+        <% end %>
+      </ul>
+      <div class="bottom"></div>
+    </div><!--end menu_wrapper-->
+  </div><!--end description-->
+</div><!--end sidebar-->
+

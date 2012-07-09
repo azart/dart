@@ -1,4 +1,8 @@
 /*
  *= require_self
  *= require style
+ *= require jquery-ui
+ *= require fileuploader
+ *= require markitup
+ *= require markitup.skin
 */

@@ -1,0 +1,7 @@
+<div id="<%= "unit_image_#{target.id}" %>" class="image-upload-preview">
+  <%= hidden_field_tag :unit_id, target.unit_id, :class => "upload_unit_id" %>
+  <%= image_tag target.image.url(:preview_item), :class => "upload_preview" %><br/>
+  <%= label :title, "Заголовок" %><br/>
+  <%= text_field_tag :title, target.title, :class => "upload_title", :onkeyup => "updateStuffImage(#{target.id}, 'unit')" %><br/>
+  <%= label :cover, "Обложка" %><%= check_box_tag :cover, target.cover, target.cover, :class => "upload_cover", :onchange => "updateStuffImage(#{target.id}, 'unit')" %> / <%= label :preview, "Превью" %> <%= check_box_tag :preview, target.preview, target.preview, :class => "upload_preview", :onchange => "updateStuffImage(#{target.id}, 'unit')" %> / <%= link_to t('backend.actions.destroy'), "/unit_images/destroy/#{target.id}", :remote => true %>
+</div>

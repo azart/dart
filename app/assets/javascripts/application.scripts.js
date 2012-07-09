@@ -1,6 +1,16 @@
+$(document).ready(function () {
+    if ($("#notice").length > 0) {
+        setTimeout(function () {
+            $("#notice").animate({top:-144}, 555, function () {
+                $("#notice").remove();
+            });
+        }, 3500);
+    }
+});
+
 $(function () {
 
-    foldAllItems();
+//    foldAllItems();
     ChangeWidthHeight();
 
     $(window).resize(function () {
@@ -19,17 +29,16 @@ $(function () {
         }
     });
 
-//    menuWrapperTop = $(".menu_wrapper").offset().top;
-    menuWrapperRealHeight = getRealMenuHeight();
-    maxMargin = menuWrapperRealHeight - 400;
-    $(".menu_wrapper").mousemove(function (e) {
-        var wrapperMouseTopPos = e.pageY - menuWrapperTop;
-        if (wrapperMouseTopPos < 20) return false;
-        var menuMarginTop = maxMargin * (wrapperMouseTopPos - 20) / (400 - 40);
-        if (menuMarginTop < maxMargin) {
-            $(".menu_about").css("margin-top", "-" + menuMarginTop + "px");
-        }
-    });
+//    menuWrapperRealHeight = getRealMenuHeight();
+//    maxMargin = menuWrapperRealHeight - 400;
+//    $(".menu_wrapper").mousemove(function (e) {
+//        var wrapperMouseTopPos = e.pageY - menuWrapperTop;
+//        if (wrapperMouseTopPos < 20) return false;
+//        var menuMarginTop = maxMargin * (wrapperMouseTopPos - 20) / (400 - 40);
+//        if (menuMarginTop < maxMargin) {
+//            $(".menu_about").css("margin-top", "-" + menuMarginTop + "px");
+//        }
+//    });
 });
 
 function foldAllItems() {

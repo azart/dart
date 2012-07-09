@@ -29,13 +29,13 @@ en:
 
   helpers:
     submit:
-      create: "Создать"
-      update: "Сохранить"
-      submit: "Сохранить"
-      post: "Отправить"
-#      create: "Создать %{model}"
-#      update: "Сохранить %{model}"
-#      submit: "Сохранить %{model}"
+#      create: "Создать"
+#      update: "Сохранить"
+#      submit: "Сохранить"
+#      post: "Отправить"
+      create: "Создать %{model}"
+      update: "Сохранить %{model}"
+      submit: "Сохранить %{model}"
 
   errors:
     messages:

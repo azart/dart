@@ -4,7 +4,7 @@ class Unit < ActiveRecord::Base
   #belongs_to :author, :class_name => 'User'
   belongs_to :unit, :foreign_key => :parent_id
   has_many :units, :foreign_key => :parent_id, :order => 'unit_order'
-  #has_many :unit_images
+  has_many :unit_images
   #has_many :unit_files
 
   validates_presence_of :title, :locale#, :short_url
@@ -29,8 +29,57 @@ class Unit < ActiveRecord::Base
     self.preview_id = rand(99999999) + 99999999 if self.preview_id.nil? && self.new_record?
   end
 
+  def super_unit
+    @super_unit = self
+    loop do
+      @super_unit = @super_unit.unit() if !@super_unit.parent_id.nil?
+      break if @super_unit.parent_id.nil?
+    end if @super_unit
+    @super_unit
+  end
+
   def get_id
     self.id || self.preview_id
+  end
+
+  def get_cover
+    cover_images = UnitImage.find_all_by_unit_id_and_cover(self.id, true)
+    unless cover_images.empty?
+      cover_images[rand(cover_images.size())]
+    else
+      UnitImage.find_by_unit_id(self.id) || UnitImage.new
+    end
+  end
+
+  def get_preview
+    preview_images = UnitImage.find_all_by_unit_id_and_preview(self.id, true)
+
+    unless preview_images.empty?
+      preview_images[rand(preview_images.size())]
+    else
+      UnitImage.find_by_unit_id(self.id) || UnitImage.new
+    end
+  end
+
+
+  def tree
+
+    tree = []
+    units = Unit.main_menu
+    units.each do |fl|
+      tree << fl
+      slc = fl.units
+      slc.each do |sl|
+        sl.title = "+" + sl.title
+        tree << sl
+        tlc = sl.units
+        tlc.each do |tl|
+          tl.title = "++" + tl.title
+          tree << tl
+        end if tlc
+      end if slc
+    end
+    tree
   end
 
   private
@@ -51,7 +100,7 @@ class Unit < ActiveRecord::Base
 
   def self.tree
     tree = []
-    units = Unit.main_menu
+    units = Unit.main_menu(I18n.locale)
     units.each do |fl|
       tree << fl
       slc = fl.units
