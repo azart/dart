@@ -6,7 +6,7 @@
   <% unless @last_news.nil? %>
       <div class="news">
         <%= link_to @last_news.title, unit_by_short_url_path(@last_news.short_url), :class => "title_news" %>
-        <p><%= @last_news.description %> &#133;<%= link_to "подробно", unit_by_short_url_path(@last_news.short_url) %></p>
+        <p><%= raw @last_news.description %> &#133;<%= link_to "подробно", unit_by_short_url_path(@last_news.short_url) %></p>
       </div>
   <% end %>
 </div><!--end sidebar-->
