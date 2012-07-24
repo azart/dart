@@ -2,11 +2,10 @@
   <div class="about">
     <%= raw @welcome.description %>
   </div>
-  <!--end about-->
   <% unless @last_news.nil? %>
       <div class="news">
         <%= link_to @last_news.title, unit_by_short_url_path(@last_news.short_url), :class => "title_news" %>
-        <p><%= raw @last_news.description %> &#133;<%= link_to "подробно", unit_by_short_url_path(@last_news.short_url) %></p>
+        <p><%= raw @last_news.description %> &#133;<%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(@last_news.short_url) %></p>
       </div>
   <% end %>
-</div><!--end sidebar-->
+</div>

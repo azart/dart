@@ -96,6 +96,7 @@ ru:
         unit_image: "Фотографии/изображения"
 #        unit_file: "Файлы"
         preview: "Превью (Изображение в шапке или списке)"
+        more: "Подробнее"
 
   simple_captcha:
     message:

@@ -10,10 +10,9 @@ class WelcomesController < ApplicationController
   # GET /welcomes.json
   def index
     @last_news = Unit.where(:locale => I18n.locale).where(:parent_id => 32).order("created_at DESC").first
-    @top = Unit.where(:welcome_slider => true).limit(5)
-
+    @top = Unit.where(:locale => I18n.locale).where(:welcome_slider => true).limit(5).all
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @welcomes }
     end
   end

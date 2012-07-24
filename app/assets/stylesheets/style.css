@@ -1,19 +1,16 @@
-/*reset*/
 @charset "utf-8";
-/* CSS Document */
-html, body, div, p, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup,
+menu, nav, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
+    border: 0;
     outline: 0;
     font-size: 100%;
+    vertical-align: baseline;
     background: transparent;
 }
 
@@ -34,12 +31,10 @@ q:before, q:after {
     content: '';
 }
 
-/* remember to define focus styles! */
 :focus {
     outline: 0;
 }
 
-/* tables still need 'cellspacing="0"' in the markup */
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -49,9 +44,18 @@ ul, ol {
     list-style: none;
 }
 
-/*end reset*/
+html, body {
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    background: #ccc;
+    min-height: 100%;
+    height: 100%;
+    background: #CCCCCC;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -60,23 +64,23 @@ a {
 }
 
 #container {
-    width: 100%;
-    height: 100%;
     overflow: hidden;
     position: relative;
     min-width: 1024px;
-    width: expression(document.body.clientWidth < 1024? "1024px": "auto");
-    z-index: 11;
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }
 
 #header {
     background: url(header.png) repeat-x;
     width: 100%;
     height: 75px;
-    position: absolute;
+    position: fixed;
     top: 0;
-    z-index: 10;
     left: 0;
+    z-index: 144;
 }
 
 .logo {
@@ -116,10 +120,12 @@ a {
     background: url(sidebar.png) repeat;
     width: 224px;
     left: 0;
+    top: 69px;
     position: absolute;
-    z-index: 5;
-    height: 500px;
+    z-index: 121;
     padding: 0 35px 0 50px;
+    height: 100%;
+    min-height: 100%;
 }
 
 #sidebar_license {
@@ -134,7 +140,7 @@ a {
 .about {
     float: left;
     width: 100%;
-    margin-top: 86px;
+    margin-top: 21px;
 }
 
 .about p, .news p {
@@ -173,10 +179,11 @@ a {
 }
 
 .info {
-    position: absolute;
-    bottom: 155px;
+    position: fixed;
+    bottom: 34%;
     right: 0;
-    z-index: 5;
+    z-index: 121;
+    display: none;
 }
 
 .title_info {
@@ -236,8 +243,8 @@ a {
     width: 100%;
     height: 70px;
     position: absolute;
-    z-index: 10;
-    bottom: 0px;
+    z-index: 144;
+    bottom: 0;
     left: 0;
     padding-top: 6px;
 }
@@ -407,17 +414,21 @@ a {
 }
 
 #slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    margin:0;
+    padding:0;
     overflow: hidden;
+    z-index: 2;
+    top: 0;
 }
 
 #slider img {
-    position: relative;
-    top: 0;
-    left: 0;
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    display: block;
+    /*width: 100%;*/
+    overflow: hidden;
+    z-index: 2;
 }
 
 .description h1 {
@@ -814,14 +825,6 @@ h1 {
     margin-left: 15px;
 }
 
-.slide {
-    display: none;
-}
-
-.cs-activeSlide {
-    display: block;
-}
-
 #cuselFrame-post_created_at_3i, #cuselFrame-post_created_at_2i, #cuselFrame-post_created_at_1i {
     margin-right: 13px;
 }
@@ -1087,3 +1090,119 @@ h1 {
     box-shadow: 2px 5px 8px 5px rgba(0, 0, 0, 0.3);
 }
 
+/*---------- Slider ----------- */
+#slide-prev {
+    position: absolute;
+    width: 21px;
+    height: 33px;
+    bottom: 21%;
+    left: 21px;
+    z-index: 4;
+    background: url(sl-control.png) left top no-repeat;
+}
+
+#slide-next {
+    position: absolute;
+    width: 21px;
+    height: 33px;
+    bottom: 21%;
+    right: 21px;
+    z-index: 4;
+    background: url(sl-control.png) left bottom no-repeat;
+}
+
+#slider {
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    z-index: 2;
+    display: block;
+}
+
+/* Every slide must be hidden by default */
+.slide {
+    display: none;
+}
+
+/*
+   And only the slide with "cs-activeSlide" class must be visible!
+   !Reserved Class name. Required class!
+*/
+.cs-activeSlide {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    z-index: 2;
+    text-align: center;
+}
+
+.cs-activeSlide img {
+    z-index: 2;
+    width: 100%;
+    /*background-attachment: fixed !important;*/
+    /*background: url(background.jpg) 100% 100% no-repeat;*/
+    /*background-size: cover;*/
+
+}
+
+.slide-descriptions {
+    display: none;
+}
+
+/* Container with caption, must be hidden by default */
+/*.caption {*/
+/*background: url(d-bg.png) repeat scroll 0 0 transparent;*/
+/*color: #FFFFFF;*/
+/*display: none;*/
+/*height: 280px;*/
+/*padding: 20px;*/
+/*position: absolute;*/
+/*right: 40px;*/
+/*top: 140px;*/
+/*width: 180px;*/
+/*z-index: 3;*/
+/*}*/
+
+/*.full-3D {*/
+/*right: 40px;*/
+/*top: 580px;*/
+/*width: 840px;*/
+/*height: 20px;*/
+/*}*/
+
+/*.slider-pagination {*/
+    /*display: inline-block;*/
+    /*width: 15px;*/
+    /*height: 10px;*/
+    /*background: url(navi.png) no-repeat left bottom;*/
+    /*margin: 0 10px;*/
+    /*cursor: pointer;*/
+    /*position: relative;*/
+    /*z-index: 200;*/
+/*}*/
+
+/* This is a required class for the "Active" pagination button. ! Reserved Class Name ! */
+/*.cs-active-pagination {*/
+    /*background: url(navi.png) no-repeat left top;*/
+/*}*/
+
+/*.cs-slider-loader {*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*margin: 0 auto;*/
+    /*display: none;*/
+    /*width: 100%;*/
+    /*z-index: 5 !important;*/
+    /*text-align: center;*/
+/*}*/
+
+/*.dummy-first {*/
+    /*width: 100% !important;*/
+    /*min-height: 100%;*/
+    /*z-index: 5 !important;*/
+/*}*/

@@ -5,9 +5,9 @@ class Unit < ActiveRecord::Base
   belongs_to :unit, :foreign_key => :parent_id
   has_many :units, :foreign_key => :parent_id, :order => 'unit_order'
   has_many :unit_images
-  #has_many :unit_files
 
-  validates_presence_of :title, :locale#, :short_url
+  validates_presence_of :title, :locale, :short_url
+  validates_uniqueness_of :short_url
 
   attr_accessible :locale, :title, :parent_id, :welcome_slider, :description, :content, :layout, :unit_order, :short_url, :seo_title, :seo_keywords, :seo_description, :created_at, :preview_id
 
@@ -49,6 +49,14 @@ class Unit < ActiveRecord::Base
     else
       UnitImage.find_by_unit_id(self.id) || UnitImage.new
     end
+  end
+
+  def get_covers
+    cover_images = UnitImage.find_all_by_unit_id_and_cover(self.id, true)
+    if cover_images.empty? || cover_images.nil?
+      cover_images = [UnitImage.find_by_unit_id(self.id) || UnitImage.new]
+    end
+    cover_images
   end
 
   def get_preview

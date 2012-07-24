@@ -9,20 +9,13 @@
 
   <%= javascript_include_tag :editor %>
 
-  <%= csrf_meta_tag
-  %>
+  <%= csrf_meta_tag %>
   <%= yield(:head) %>
 
   <%= stylesheet_link_tag :application %>
 
-  <!--[if IE]>
-  <![if lte IE 7]>
-  <%= stylesheet_link_tag :ie7 %>
-  <![endif]>
-  <![if lte IE 8]>
-  <%= stylesheet_link_tag :ie8 %>
-  <![endif]>
-<![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag :ie7 %><![endif]-->
+  <!--[if IE 8]><%= stylesheet_link_tag :ie8 %><![endif]-->
 
 </head>
 

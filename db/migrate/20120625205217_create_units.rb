@@ -22,7 +22,7 @@ class CreateUnits < ActiveRecord::Migration
     add_index :units, :short_url
 
     Unit.create(:locale => "ru", :title => "Компания", :unit_order => 0, :layout => "about")
-    Unit.create(:locale => "ru", :title => "О нас", :parent_id => 1, :unit_order => 0, :layout => "about_us")
+    Unit.create(:locale => "ru", :title => "О нас", :parent_id => 1, :unit_order => 0, :layout => "about_us", :welcome_slider => true)
     Unit.create(:locale => "ru", :title => "Производство", :parent_id => 1, :unit_order => 1, :layout => "about_us")
     Unit.create(:locale => "ru", :title => "Награды и отзывы", :parent_id => 1, :unit_order => 2, :layout => "about_awards")
     Unit.create(:locale => "ru", :title => "Лицензии", :parent_id => 1, :unit_order => 3, :layout => "about_awards")
@@ -44,7 +44,7 @@ class CreateUnits < ActiveRecord::Migration
     Unit.create(:locale => "ru", :title => "Портфолио", :unit_order => 2, :layout => "projects")
     Unit.create(:locale => "ru", :title => "Выставочные стенды", :parent_id => 19, :unit_order => 1, :layout => "projects")
       Unit.create(:locale => "ru", :title => "Строительство и электроэнергия", :parent_id => 20, :unit_order => 1, :layout => "projects")
-        Unit.create(:locale => "ru", :title => "Строительство торгового центра", :parent_id => 21, :unit_order => 1, :layout => "project")
+        Unit.create(:locale => "ru", :title => "Строительство торгового центра", :parent_id => 21, :unit_order => 1, :layout => "project", :welcome_slider => true)
         Unit.create(:locale => "ru", :title => "Электроэнергия в массы", :parent_id => 21, :unit_order => 2, :layout => "project")
       Unit.create(:locale => "ru", :title => "Транспорт", :parent_id => 20, :unit_order => 2, :layout => "projects")
       Unit.create(:locale => "ru", :title => "Аэрокосмическая индустрия", :parent_id => 20, :unit_order => 3, :layout => "projects")
@@ -56,14 +56,18 @@ class CreateUnits < ActiveRecord::Migration
 
     Unit.create(:locale => "ru", :title => "Клиенты", :unit_order => 3, :layout => "about_awards")
     Unit.create(:locale => "ru", :title => "Новости", :unit_order => 4, :layout => "news")
-    Unit.create(:locale => "ru", :title => "Кейтринг", :parent_id => 32, :unit_order => nil, :layout => "news")
-    Unit.create(:locale => "ru", :title => "Объемные буквы", :parent_id => 32, :unit_order => nil, :layout => "news")
+    Unit.create(:locale => "ru", :title => "Самая новая новость", :parent_id => 32, :unit_order => nil, :layout => "news", :welcome_slider => true, :description => "Развернутое описание объема заметного в нексколько строчек.")
 
     Unit.create(:locale => "ru", :title => "Оставить заявку", :unit_order => 5, :layout => "order")
     Unit.create(:locale => "ru", :title => "Проектирование и строительство", :parent_id => 35, :unit_order => 5, :layout => "order")
     Unit.create(:locale => "ru", :title => "Дизайн интерьеров", :parent_id => 35, :unit_order => 5, :layout => "order")
     Unit.create(:locale => "ru", :title => "Expooffice", :parent_id => 35, :unit_order => 5, :layout => "order")
 
-    Unit.create(:locale => "ru", :title => "Контакты", :unit_order => 6, :layout => "contacts", :content => "")
+    Unit.create(:locale => "ru", :title => "Контакты", :unit_order => 6, :layout => "contacts", :content => "<ul class='menu_about' style='height: 248px;'><li class='contact'><span><div class='contact_box'><p>Тел/факс : <br>(495) 735-43-44<br>АДРЕС ОФИСА : г.Москва, ул.Азовская, д .24, офис 44 ТЦ 'Азовский'</p></ div></span></ li><li class='contact'><span><div class='contact_box'><p>Тел/факс: <br>(495) 755-68-62<br>(ЮДЕНКОВ АЛЕКСАНДР)<br>АДРЕС ПРОИЗВОДСТВА : г.Москва, Очаковское шоссе, д .36 а</p></ div></span></ li><li class='contact no_border'><span><div class='contact_box'><p>E-MAIL :< br>info @dart-expo.ru</p></ div></span></ li></ul>")
   end
 end
+
+
+
+
+

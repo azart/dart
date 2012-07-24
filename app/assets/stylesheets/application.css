@@ -1,8 +1,8 @@
 /*
- *= require_self
- *= require style
+ *= require scaffolds.css
  *= require jquery-ui
  *= require fileuploader
  *= require markitup
  *= require markitup.skin
+ *= require style
 */

@@ -1,6 +1,15 @@
+<div class="slide-descriptions">
+  <% @top.each do |unit| %>
+      <% unit.get_covers.each do |cover| %>
+          <div class="sl-descr">
+            <div class="title_info">
+              <%= cover.title || unit.title %>
+            </div>
+            <%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(unit.short_url), :class => "more" %>
+          </div>
+      <% end %>
+  <% end %>
+</div>
+
 <div class="info">
-  <div class="title_info">
-    ROVESE Group
-  </div><!--end title_info-->
-  <a href="#" class="more">Подробнее</a>
-</div><!--end info-->
+</div>
