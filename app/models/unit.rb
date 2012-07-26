@@ -6,7 +6,7 @@ class Unit < ActiveRecord::Base
   has_many :units, :foreign_key => :parent_id, :order => 'unit_order'
   has_many :unit_images
 
-  validates_presence_of :title, :locale, :short_url
+  validates_presence_of :title, :locale#, :short_url
   validates_uniqueness_of :short_url
 
   attr_accessible :locale, :title, :parent_id, :welcome_slider, :description, :content, :layout, :unit_order, :short_url, :seo_title, :seo_keywords, :seo_description, :created_at, :preview_id

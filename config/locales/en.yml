@@ -7,8 +7,8 @@ en:
 
   paperclip:
     errors:
-      presence: "должено быть задано"
-      content_type: "имеет неправильный тип"
+      presence: "must be set"
+      content_type: "unknown content type"
 
   backend:
     actions:
@@ -29,18 +29,18 @@ en:
 
   helpers:
     submit:
-#      create: "Создать"
-#      update: "Сохранить"
-#      submit: "Сохранить"
-#      post: "Отправить"
-      create: "Создать %{model}"
-      update: "Сохранить %{model}"
-      submit: "Сохранить %{model}"
+      create: "Create"
+      update: "Update"
+      submit: "Submit"
+      post: "Post"
+#      create: "Создать %{model}"
+#      update: "Сохранить %{model}"
+#      submit: "Сохранить %{model}"
 
   errors:
     messages:
-      cannot_be_blank: "не может быть пустым"
-      invalid_email: "некорректен"
+      cannot_be_blank: "cannot be null"
+      invalid_email: "unknown"
       invalid_url: "некорректна, должно быть что-то вроде http://your-site.com"
       mismatch: "несовпадает"
       must_be_zero_one: "должно быть больше нуля и меньше единицы"
@@ -59,15 +59,19 @@ en:
       user: "пользователя"
       unit: "страницу/раздел"
     attributes:
+      welcome:
+        more: "More"
+        copyright: "© Copyright 2012 3D ART"
+        follow: "Follow us on social networks"
       user:
-        role: "Роль в системе"
+        role: "Role"
         email: "E-mail"
-        password: "Пароль"
-        password_confirmation: "Пароль ещё раз"
-        current_password: "Текущий пароль"
-        name: "Имя"
-        position: "Должность"
-        users_list: "Список пользователей"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current passwd"
+        name: "Name"
+        position: "Position"
+        users_list: "Users list"
       feedback:
         name: "Ваше имя"
         phone: "Контактный телефон"
@@ -79,24 +83,25 @@ en:
         incoming: "Содержание сообщения"
         site_mailer: "Сервис почтовых оповещений"
       unit:
-        title: "Заголовок"
-        description: "Описание"
-        content: "Содержание"
-        created_at: "Добавлено"
-        parent: "Принадлежность к странице/разделу"
-        layout: "Шаблон отображения"
-        expand_in_menu: "Отображать список наследников в меню"
-        category: "Категория"
-        unit_order: "Порядок следования"
-        unit_type: "Тип сущности"
-        short_url: "Короткий урл"
+        title: "Title"
+        description: "Description"
+        content: "Content"
+        created_at: "created at"
+        parent_id: "Parent unit"
+        layout: "View template"
+        locale: "Language"
+        welcome_slider: "To welcome"
+        unit_order: "Order in list"
+        unit_type: "Unit type"
+        short_url: "Short url"
         seo_title: "SEO Title"
         seo_keywords: "SEO Keywords"
         seo_description: "SEO Description"
-        unit_image: "Фотографии/изображения"
-#        unit_file: "Файлы"
-        preview: "Превью (Изображение в шапке или списке)"
+        unit_image: "Images"
+        unit_file: "Files"
+        preview: "Preview (cover or list preview)"
+        more: "More"
 
   simple_captcha:
     message:
-      feedback: Неверно введена капча
+      feedback: Bad captha

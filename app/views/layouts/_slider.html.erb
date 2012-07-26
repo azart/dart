@@ -1,12 +1,10 @@
 <a id="slide-next" href="#"></a>
 <a id="slide-prev" href="#"></a>
 
-<div id="slider" class="active-transition">
-  <% counter = 0 %>
-  <% @top.each do |unit| %>
-      <% unit.get_covers.each do |cover| %>
-          <% counter += 1 %>
-          <div class="slide <%= " cs-activeSlide" if unit.get_covers.first == cover %>">
+<div id="slider">
+  <% @top.each_with_index do |unit, i| %>
+      <% unit.get_covers.each_with_index do |cover, j| %>
+          <div class="slide <%= "cs-activeSlide" if i == 0 && j == 0 %>">
             <%= image_tag cover.image.url(:big), :alt => cover.title || unit.title %>
           </div>
       <% end %>

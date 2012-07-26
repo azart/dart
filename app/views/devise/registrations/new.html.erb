@@ -1,6 +1,5 @@
-<div id="sidebar" class="edit_form">
-  <h2>Sign up</h2>
-
+<div id="sidebar" class="edit_form devise">
+  <h2><%= t("devise.sessions.sign_up") %></h2>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
@@ -16,8 +15,8 @@
         <br/>
         <%= f.password_field :password_confirmation %></div>
 
-      <div><%= f.submit "Sign up" %></div>
+      <div><%= f.submit t("devise.sessions.sign_up") %></div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <%#= render "devise/shared/links" %>
 </div>

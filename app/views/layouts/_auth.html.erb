@@ -1,0 +1,40 @@
+<ul class="margin_top_55 menu_about">
+  <% if user_signed_in? %>
+      <li class="contact">
+        <span>
+            <div class="contact_box">
+              <h4><%= current_user.email %></h4>
+            </div>
+        </span>
+      </li>
+      <li class="contact">
+        <span>
+            <div class="contact_box">
+              <%= link_to "#{t('devise.sessions.my')}", "/users/edit" %>
+            </div>
+        </span>
+      </li>
+      <li class="contact">
+        <span>
+            <div class="contact_box">
+              <%= link_to t("devise.sessions.sign_out"), destroy_user_session_path, :method => :delete %>
+            </div>
+        </span>
+      </li>
+  <% else %>
+      <li class="contact">
+        <span>
+            <div class="contact_box">
+              <%= link_to t("devise.sessions.sign_in"), new_user_session_path %>
+            </div>
+        </span>
+      </li>
+      <li class="contact">
+        <span>
+            <div class="contact_box">
+              <%= link_to t("devise.sessions.sign_up"), new_user_registration_path %>
+            </div>
+        </span>
+      </li>
+  <% end %>
+</ul>

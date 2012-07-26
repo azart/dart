@@ -4,11 +4,9 @@
         <li <%= "class='current'" if @unit && unit == @unit %>><%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => ("menu_#{i}" unless i == 0) %></li>
     <% end %>
   </ul>
-  <p>© Copyright 2012 3D ART</p>
-
+  <p><%= t("activerecord.attributes.welcome.copyright   ") %></p>
   <div class="social">
-    <p>Следите за нами в социальных сетях</p>
-
+    <p><%= t("activerecord.attributes.welcome.follow") %></p>
     <%= link_to image_tag("vk.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
     <%= link_to image_tag("face.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
     <%= link_to image_tag("tw.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>

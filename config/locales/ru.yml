@@ -59,6 +59,10 @@ ru:
       user: "пользователя"
       unit: "страницу/раздел"
     attributes:
+      welcome:
+        more: "Подробнее"
+        copyright: "© Copyright 2012 3D ART"
+        follow: "Следите за нами в социальных сетях"
       user:
         role: "Роль в системе"
         email: "E-mail"

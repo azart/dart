@@ -63,7 +63,7 @@ class CreateUnits < ActiveRecord::Migration
     Unit.create(:locale => "ru", :title => "Дизайн интерьеров", :parent_id => 35, :unit_order => 5, :layout => "order")
     Unit.create(:locale => "ru", :title => "Expooffice", :parent_id => 35, :unit_order => 5, :layout => "order")
 
-    Unit.create(:locale => "ru", :title => "Контакты", :unit_order => 6, :layout => "contacts", :content => "<ul class='menu_about' style='height: 248px;'><li class='contact'><span><div class='contact_box'><p>Тел/факс : <br>(495) 735-43-44<br>АДРЕС ОФИСА : г.Москва, ул.Азовская, д .24, офис 44 ТЦ 'Азовский'</p></ div></span></ li><li class='contact'><span><div class='contact_box'><p>Тел/факс: <br>(495) 755-68-62<br>(ЮДЕНКОВ АЛЕКСАНДР)<br>АДРЕС ПРОИЗВОДСТВА : г.Москва, Очаковское шоссе, д .36 а</p></ div></span></ li><li class='contact no_border'><span><div class='contact_box'><p>E-MAIL :< br>info @dart-expo.ru</p></ div></span></ li></ul>")
+    Unit.create(:locale => "ru", :title => "Контакты", :unit_order => 6, :layout => "contacts", :content => "<ul class='menu_about' style='height: 248px;'><li class='contact'><span><div class='contact_box'><p>Тел/факс : <br>(495) 735-43-44<br>АДРЕС ОФИСА : г.Москва, ул.Азовская, д .24, офис 44 ТЦ 'Азовский'</p></div></span></li><li class='contact'><span><div class='contact_box'><p>Тел/факс: <br>(495) 755-68-62<br>(ЮДЕНКОВ АЛЕКСАНДР)<br>АДРЕС ПРОИЗВОДСТВА : г.Москва, Очаковское шоссе, д .36 а</p></div></span></li><li class='contact no_border'><span><div class='contact_box'><p>E-MAIL :<br/>info @dart-expo.ru</p></div></span></li></ul>")
   end
 end
 

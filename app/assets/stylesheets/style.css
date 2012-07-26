@@ -46,15 +46,15 @@ ul, ol {
 
 html, body {
     font-size: 100%;
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
     padding: 0;
     margin: 0;
 }
 
 body {
-    min-height: 100%;
-    height: 100%;
+    /*min-height: 100%;*/
+    /*height: 100%;*/
     background: #CCCCCC;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -66,9 +66,9 @@ a {
 #container {
     overflow: hidden;
     position: relative;
-    min-width: 1024px;
-    min-height: 100%;
-    height: 100%;
+    /*min-width: 1024px;*/
+    /*min-height: 100%;*/
+    /*height: 100%;*/
     width: 100%;
     z-index: 1;
 }
@@ -89,6 +89,10 @@ a {
     height: 63px;
     margin-left: 50px;
     float: left;
+}
+
+h2 {
+    text-align: center;
 }
 
 .right_block {
@@ -125,7 +129,7 @@ a {
     z-index: 121;
     padding: 0 35px 0 50px;
     height: 100%;
-    min-height: 100%;
+    /*min-height: 100%;*/
 }
 
 #sidebar_license {
@@ -162,11 +166,11 @@ a {
     line-height: 25px;
     float: left;
     color: #000000;
-    font-size: 12px;
     text-decoration: none;
     clear: both;
     display: block;
     margin-bottom: 10px;
+    font-size: 13pt;
 }
 
 .news p {
@@ -234,7 +238,7 @@ a {
     background: url(more_bg.png) repeat-x 0 -77px;
 }
 
-.info_service	.more {
+.info_service .more {
     background: url(more.png) no-repeat 0 -179px;
 }
 
@@ -242,8 +246,8 @@ a {
     background: url(footer.png) repeat-x;
     width: 100%;
     height: 70px;
-    position: absolute;
-    z-index: 144;
+    position: fixed;
+    z-index: 10000;
     bottom: 0;
     left: 0;
     padding-top: 6px;
@@ -411,24 +415,6 @@ a {
 
 .menu_6 {
     border-bottom: 1px solid #ff9600;
-}
-
-#slider {
-    margin:0;
-    padding:0;
-    overflow: hidden;
-    z-index: 2;
-    top: 0;
-}
-
-#slider img {
-    /*position: fixed;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    display: block;
-    /*width: 100%;*/
-    overflow: hidden;
-    z-index: 2;
 }
 
 .description h1 {
@@ -1003,11 +989,13 @@ h1 {
 }
 
 .edit_form {
-    margin: 69px auto;
-    width: 620px !important;
+    margin: 0 auto;
+    /*overflow: auto;*/
+    padding: 70px 13px !important;
     position: relative !important;
-    padding: 34px 13px !important;
-    height: auto !important;
+    width: 620px !important;
+    -webkit-box-shadow: 5px 1px 21px 3px;
+    box-shadow: 5px 1px 21px 3px;
 }
 
 .field {
@@ -1090,7 +1078,29 @@ h1 {
     box-shadow: 2px 5px 8px 5px rgba(0, 0, 0, 0.3);
 }
 
-/*---------- Slider ----------- */
+#slider {
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    height: 700px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*min-height: 100%;*/
+    z-index: 2;
+}
+
+#slider img {
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    display: block;
+    /*width: 100%;*/
+    overflow: hidden;
+    z-index: 2;
+}
+
 #slide-prev {
     position: absolute;
     width: 21px;
@@ -1111,27 +1121,6 @@ h1 {
     background: url(sl-control.png) left bottom no-repeat;
 }
 
-#slider {
-    position:relative;
-    margin-left:auto;
-    margin-right:auto;
-
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    z-index: 2;
-    display: block;
-}
-
-/* Every slide must be hidden by default */
-.slide {
-    display: none;
-}
-
-/*
-   And only the slide with "cs-activeSlide" class must be visible!
-   !Reserved Class name. Required class!
-*/
 .cs-activeSlide {
     display: block;
     width: 100%;
@@ -1150,23 +1139,13 @@ h1 {
 
 }
 
-.slide-descriptions {
+.slide, .slide-descriptions {
     display: none;
 }
 
-/* Container with caption, must be hidden by default */
-/*.caption {*/
-/*background: url(d-bg.png) repeat scroll 0 0 transparent;*/
-/*color: #FFFFFF;*/
-/*display: none;*/
-/*height: 280px;*/
-/*padding: 20px;*/
-/*position: absolute;*/
-/*right: 40px;*/
-/*top: 140px;*/
-/*width: 180px;*/
-/*z-index: 3;*/
-/*}*/
+.slide.activeSlide {
+    display: block;
+}
 
 /*.full-3D {*/
 /*right: 40px;*/
@@ -1176,33 +1155,57 @@ h1 {
 /*}*/
 
 /*.slider-pagination {*/
-    /*display: inline-block;*/
-    /*width: 15px;*/
-    /*height: 10px;*/
-    /*background: url(navi.png) no-repeat left bottom;*/
-    /*margin: 0 10px;*/
-    /*cursor: pointer;*/
-    /*position: relative;*/
-    /*z-index: 200;*/
+/*display: inline-block;*/
+/*width: 15px;*/
+/*height: 10px;*/
+/*background: url(navi.png) no-repeat left bottom;*/
+/*margin: 0 10px;*/
+/*cursor: pointer;*/
+/*position: relative;*/
+/*z-index: 200;*/
 /*}*/
 
 /* This is a required class for the "Active" pagination button. ! Reserved Class Name ! */
 /*.cs-active-pagination {*/
-    /*background: url(navi.png) no-repeat left top;*/
+/*background: url(navi.png) no-repeat left top;*/
 /*}*/
 
 /*.cs-slider-loader {*/
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*margin: 0 auto;*/
-    /*display: none;*/
-    /*width: 100%;*/
-    /*z-index: 5 !important;*/
-    /*text-align: center;*/
+/*position: fixed;*/
+/*top: 0;*/
+/*margin: 0 auto;*/
+/*display: none;*/
+/*width: 100%;*/
+/*z-index: 5 !important;*/
+/*text-align: center;*/
 /*}*/
 
 /*.dummy-first {*/
-    /*width: 100% !important;*/
-    /*min-height: 100%;*/
-    /*z-index: 5 !important;*/
+/*width: 100% !important;*/
+/*min-height: 100%;*/
+/*z-index: 5 !important;*/
 /*}*/
+
+.devise form input[type="email"], .devise form input[type="password"], .devise form input[type="checkbox"] {
+    margin: 0 auto;
+    width: 55%;
+    border: 1px solid #9C00FF;
+    display: block;
+    height: 34px;
+    margin: 0 auto;
+}
+
+.devise form label, .devise form i, .devise p, .devise h3 {
+    margin: 13px auto 8px auto;
+    width: 55%;
+    display: block;
+}
+
+.devise form input[type="submit"], .actions input[type="submit"] {
+    -webkit-border-radius: 21px;
+    border-radius: 21px;
+    display: block;
+    height: 34px;
+    margin: 34px auto;
+    border: 1px solid #9C00FF;
+}

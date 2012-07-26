@@ -22,8 +22,13 @@ ru:
       timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'Your account was not activated yet.'
     sessions:
+      my: 'Изменить личные данные'
+      sign_in: 'Авторизоваться на сайте'
+      sign_up: 'Зарегистрироваться'
+      sign_out: 'Завершить работу'
       signed_in: 'Здравствуй! Ты успешно прошел(а) авторизацию.'
-      signed_out: 'Вы успешно закрыли сессию ажминистратора.'
+      signed_out: 'Пака пака (='
+      remember_me: 'Запомнить меня на сайте'
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'
