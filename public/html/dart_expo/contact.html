@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" media="screen" type="text/css" title="Style" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.effects.core.min.js"></script>
+<script type="text/javascript" src="js/jquery.effects.blind.min.js"></script>
+<script type="text/javascript" src="js/general.js"></script>
+<!--[if IE 7]><link href="css/ie7.css" rel="stylesheet" type="text/css"/><![endif]-->
+<!--[if IE 8]><link href="css/ie8.css" rel="stylesheet" type="text/css"/><![endif]-->
+<script type="text/javascript">
+$(function ChangeWidthHeight() {
+	if ($(window).height() > 626) {
+
+	}
+      $('#container').css("height", +$(window).height()+'px');
+      $('#sidebar').css("height", +$(window).height()+'px');
+      $('#slider img').css("height", +$(window).height()+'px');
+      $('#container').css("width",+$(window).width()+'px');
+      $('#slider img').css("width",+$(window).width()+'px');
+
+});
+$(function ChangeWidthHeight() {
+    $(window).resize(function () {
+	if ($(window).height() > 626) {
+      $('#container').css("height", +$(window).height()+'px');
+      $('#sidebar').css("height", +$(window).height()+'px');
+      $('#slider img').css("height", +$(window).height()+'px');
+
+	}
+      $('#container').css("width",+$(window).width()+'px');
+      $('#slider img').css("width",+$(window).width()+'px');
+    });
+});
+</script>
+
+<style type="text/css">
+.menu_wrapper {
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
+}
+</style>
+
+<title></title>
+</head>
+<body>
+	<div id="container">
+    	<div id="header">
+        	<a href="index.html" class="logo"></a>
+        	<div class="right_block">
+            	<ul class="language">
+                	<li><a href="#"><img src="images/eng.png" width="18" height="12" alt="" /></a></li>
+                	<li><a href="#"><img src="images/rus.png" width="18" height="12" alt="" /></a></li>
+                </ul><!--end language-->
+                <span>+7 (495) 735 43 44</span>
+            </div><!--end right_block-->
+        </div><!--end header-->
+        <div id="sidebar">
+        	<div class="description contact_title">
+            	<h1>Контакты</h1>
+                <div class="top"></div>
+				<div class="menu_wrapper" style="height:auto !important;">
+                	<ul class="menu_about">
+                    	<li class="contact">
+                        	<span>
+                                <div class="contact_box">
+                                    <p>Тел/факс: </br>(495) 735-43-44</br> 
+                                    АДРЕС ОФИСА: г. Москва, ул.Азовская, д.24, офис 44 ТЦ "Азовский"</p>
+                                </div><!--end contact_box-->
+                            </span>
+                        </li>
+                    	<li class="contact">
+                        	<span>
+                                <div class="contact_box">
+                                    <p>Тел/факс: </br>(495) 755-68-62 </br>(ЮДЕНКОВ АЛЕКСАНДР)</br> 
+                                    АДРЕС ПРОИЗВОДСТВА: г. Москва, Очаковское шоссе, д.36а</p>
+                                </div><!--end contact_box-->
+                            </span>
+                        </li>
+                    	<li class="contact no_border">
+                        	<span>
+                                <div class="contact_box">
+                                    <p>E-MAIL:</br>
+                                    info@dart-expo.ru</p>
+                                </div><!--end contact_box-->
+                            </span>
+                        </li>
+                    </ul>
+				</div>
+                <div class="bottom"></div>
+            </div><!--end description-->
+        </div><!--end sidebar-->
+    	<div id="footer">
+        	<ul>
+            	<li class=""><a href="about.html" class="menu"><span>Компания</span></a></li>
+            	<li><a href="service.html" class="menu_1"><span>Услуги</span></a></li>
+            	<li><a href="portfolio.html" class="menu_2"><span>ПОРТФОЛИО</span></a></li>
+            	<li><a href="#" class="menu_3"><span>клиенты</span></a></li>
+            	<li><a href="news.html" class="menu_4"><span>Новости</span></a></li>
+            	<li class="last"><a href="order.html" class="menu_5"><span>Оставить заявку</span></a></li>
+            	<li class="last current"><a href="contact.html" class="menu_6 no_bg"><span>Контакты</span></a></li>          
+            </ul>
+            <p>© Copiright 2012 3D ART</p>
+            <div class="social">
+            	<p>Следите за нами</p>
+                <a href="#"><img src="images/vk.png" width="19" height="20" alt="" /></a>
+                <a href="#"><img src="images/face.png" width="18" height="20" alt="" /></a>
+                <a href="#"><img src="images/tw.png" width="18" height="20" alt="" /></a>
+            </div><!--end social-->
+        </div><!--end footer-->
+        <div id="slider">
+        	<img src="images/1.jpg" width="1200" height="700" alt="" />
+        </div><!--end slider-->  
+    </div><!--end container-->   
+
+  
+</body>
+</html>

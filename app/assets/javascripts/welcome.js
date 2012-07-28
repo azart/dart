@@ -3,7 +3,4 @@
 
 //= require jquery.ui
 
-//= require jquery.chopslider
-//= require jquery.cstransitions
-
-//= require welcome.scripts
+//= require modernizr

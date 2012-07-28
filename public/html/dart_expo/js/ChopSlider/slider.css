@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* Every slide must be hidden by default */
+.slide { display:none; }
+
+/* 
+   And only the slide with "cs-activeSlide" class must be visible!
+   !Reserved Class name. Required class! 
+*/
+.cs-activeSlide { display:block; }

@@ -1,12 +1,52 @@
-<a id="slide-next" href="#"></a>
-<a id="slide-prev" href="#"></a>
+<ul class="cb-slideshow">
+  <% @top.each do |unit| %>
+      <% unit.get_covers.each do |cover| %>
+          <li>
+            <span>
+              <%= "#{unit.title} #{cover.title}" %>
+            </span>
 
-<div id="slider">
-  <% @top.each_with_index do |unit, i| %>
-      <% unit.get_covers.each_with_index do |cover, j| %>
-          <div class="slide <%= "cs-activeSlide" if i == 0 && j == 0 %>">
-            <%= image_tag cover.image.url(:big), :alt => cover.title || unit.title %>
-          </div>
+            <div>
+              <h3>
+                <%= "#{unit.title} #{cover.title}" %>
+                <%# link_to cover.title || unit.title, unit_by_short_url_path(unit.short_url) %>
+              </h3>
+            </div>
+          </li>
       <% end %>
   <% end %>
-</div>
+</ul>
+
+<style type="text/css">
+    <% i = 1 %>
+    <% @top.each do |unit| %>
+    <% unit.get_covers.each do |cover| %>
+    .cb-slideshow li:nth-child(<%= i %>) span {
+        background-image: url(<%= cover.image.url(:big)%>);
+    <% if i > 1 %> -webkit-animation-delay: <%= (i-1)*6 %>s;
+        -moz-animation-delay: <%= (i-1)*6 %>s;
+        -o-animation-delay: <%= (i-1)*6 %>s;
+        -ms-animation-delay: <%= (i-1)*6 %>s;
+        animation-delay: <%= (i-1)*6 %>s;
+    <% end %>
+    }
+    <% i += 1 %>
+    <% end %>
+    <% end %>
+    <% i = 1 %>
+    <% @top.each do |unit| %>
+    <% unit.get_covers.each do |cover| %>
+    <% if i > 1 %>
+    .cb-slideshow li:nth-child(<%= i %>) div {
+        -webkit-animation-delay: <%= (i-1)*6 %>s;
+        -moz-animation-delay: <%= (i-1)*6 %>s;
+        -o-animation-delay: <%= (i-1)*6 %>s;
+        -ms-animation-delay: <%= (i-1)*6 %>s;
+        animation-delay: <%= (i-1)*6 %>s;
+
+    }
+    <% end %>
+    <% i += 1 %>
+    <% end %>
+    <% end %>
+</style>
