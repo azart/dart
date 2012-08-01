@@ -4,3 +4,4 @@
 //= require jquery.ui
 
 //= require modernizr
+//= require welcome.scripts

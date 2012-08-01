@@ -1,52 +1,82 @@
 <ul class="cb-slideshow">
-  <% @top.each do |unit| %>
-      <% unit.get_covers.each do |cover| %>
-          <li>
+  <% delay = 8 %>
+
+  <% @top.each do |cover| %>
+      <li>
             <span>
-              <%= "#{unit.title} #{cover.title}" %>
+              <%= "#{cover.unit.title} #{cover.title}" %>
             </span>
 
-            <div>
-              <h3>
-                <%= "#{unit.title} #{cover.title}" %>
-                <%# link_to cover.title || unit.title, unit_by_short_url_path(unit.short_url) %>
-              </h3>
+            <div class="slide-descriptions">
+              <div class="sl-descr">
+                <div class="title_info">
+                  <%= cover.unit.title %>
+                </div>
+                <%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(cover.unit.short_url), :class => "more" %>
+              </div>
             </div>
-          </li>
-      <% end %>
+      </li>
   <% end %>
 </ul>
 
 <style type="text/css">
-    <% i = 1 %>
-    <% @top.each do |unit| %>
-    <% unit.get_covers.each do |cover| %>
-    .cb-slideshow li:nth-child(<%= i %>) span {
-        background-image: url(<%= cover.image.url(:big)%>);
-    <% if i > 1 %> -webkit-animation-delay: <%= (i-1)*6 %>s;
-        -moz-animation-delay: <%= (i-1)*6 %>s;
-        -o-animation-delay: <%= (i-1)*6 %>s;
-        -ms-animation-delay: <%= (i-1)*6 %>s;
-        animation-delay: <%= (i-1)*6 %>s;
-    <% end %>
+    .cb-slideshow li span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        color: transparent;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: none;
+        opacity: 0;
+        z-index: 0;
+        -webkit-backface-visibility: hidden;
+        -webkit-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -moz-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -o-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -ms-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
+        animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
     }
-    <% i += 1 %>
-    <% end %>
-    <% end %>
-    <% i = 1 %>
-    <% @top.each do |unit| %>
-    <% unit.get_covers.each do |cover| %>
-    <% if i > 1 %>
-    .cb-slideshow li:nth-child(<%= i %>) div {
-        -webkit-animation-delay: <%= (i-1)*6 %>s;
-        -moz-animation-delay: <%= (i-1)*6 %>s;
-        -o-animation-delay: <%= (i-1)*6 %>s;
-        -ms-animation-delay: <%= (i-1)*6 %>s;
-        animation-delay: <%= (i-1)*6 %>s;
 
+    .cb-slideshow li div.slide-descriptions {
+        z-index: 1000;
+        position: absolute;
+        bottom: 21%;
+        left: 0;
+        width: 100%;
+        text-align: right;
+        opacity: 0;
+        -webkit-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -moz-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -o-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -ms-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
+        animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
     }
+
+    <% @top.each_with_index do |cover, i| %>
+    .cb-slideshow li:nth-child(<%= i+1 %>) span {
+        background-image: url(<%= cover.image.url(:big)%>);
+    <% if i > 0 %> -webkit-animation-delay: <%= (i)*delay %>s;
+        -moz-animation-delay: <%= (i)*delay %>s;
+        -o-animation-delay: <%= (i)*delay %>s;
+        -ms-animation-delay: <%= (i)*delay %>s;
+        animation-delay: <%= (i)*delay %>s;
     <% end %>
-    <% i += 1 %>
+    }
+
+    <% end %>
+    <% @top.each_with_index do |cover, i| %>
+    <% if i > 0 %>
+    .cb-slideshow li:nth-child(<%= i+1 %>) div {
+        -webkit-animation-delay: <%= (i)*delay %>s;
+        -moz-animation-delay: <%= (i)*delay %>s;
+        -o-animation-delay: <%= (i)*delay %>s;
+        -ms-animation-delay: <%= (i)*delay %>s;
+        animation-delay: <%= (i)*delay %>s;
+    }
+
     <% end %>
     <% end %>
 </style>

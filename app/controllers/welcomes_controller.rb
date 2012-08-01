@@ -1,3 +1,4 @@
+
 class WelcomesController < ApplicationController
   load_and_authorize_resource
 
@@ -10,7 +11,7 @@ class WelcomesController < ApplicationController
   # GET /welcomes.json
   def index
     @last_news = Unit.where(:locale => I18n.locale).where(:parent_id => 32).order("created_at DESC").first
-    @top = Unit.where(:locale => I18n.locale).where(:welcome_slider => true).limit(5).all
+    @top = UnitImage.includes(:unit).where("units.locale = ? and units.welcome_slider = ? and unit_images.cover = ?", I18n.locale, true, true).all
     respond_to do |format|
       format.html
       format.json { render json: @welcomes }
