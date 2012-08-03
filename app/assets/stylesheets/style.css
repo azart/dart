@@ -129,14 +129,13 @@ h2 {
 
 #sidebar {
     background: url(sidebar.png) repeat;
-    width: 224px;
+    width: 250px;
     left: 0;
     top: 69px;
     position: absolute;
     z-index: 121;
     padding: 0 35px 0 50px;
-    height: 100%;
-    /*min-height: 100%;*/
+    overflow: auto;
 }
 
 #sidebar_license {
@@ -474,7 +473,13 @@ h1 {
 }
 
 .menu_about li:last-child {
+    background: url("bottom.png") no-repeat scroll 0 26px transparent;
     border: none;
+    height: 89px;
+}
+
+.menu_about li:first-child {
+    height: auto;
 }
 
 .menu_about li a {
@@ -733,6 +738,10 @@ h1 {
     margin-bottom: 8px;
 }
 
+.menu_about ul li:last-child {
+    height: auto !important;
+}
+
 .menu_about ul li a {
     background: url(circle_green.png) no-repeat left -1px;
     padding-left: 14px;
@@ -761,6 +770,10 @@ h1 {
     padding: 0 0 0 5px;
 }
 
+.menu_about ul li ul li:last-child {
+    height: auto !important;
+}
+
 .menu_about ul li ul li a {
     background: url(square.png) no-repeat left 3px !important;
     color: #000000 !important;
@@ -781,9 +794,9 @@ h1 {
 }
 
 .menu_wrapper {
-    height: auto;
-    overflow: hidden;
-    width: 248px !important;
+    display: block;
+    /*overflow: auto;*/
+    width: 255px !important;
     margin-left: -15px;
 }
 
@@ -998,8 +1011,7 @@ h1 {
 
 .edit_form {
     margin: 0 auto;
-    /*overflow: auto;*/
-    padding: 70px 13px !important;
+    padding: 21px 13px !important;
     position: relative !important;
     width: 620px !important;
     -webkit-box-shadow: 5px 1px 21px 3px;
@@ -1055,6 +1067,7 @@ h1 {
     width: auto;
     border: none;
     margin: 0;
+    background: none !important;
 }
 
 #notice {
@@ -1119,10 +1132,6 @@ h1 {
     top: 0px;
     left: 0px;
     z-index: 0;
-}
-.cb-slideshow:after {
-    content: '';
-    background: transparent url(pattern.png) repeat top left;
 }
 
 @-webkit-keyframes imageAnimation {

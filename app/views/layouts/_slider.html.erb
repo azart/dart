@@ -1,14 +1,14 @@
 <ul class="cb-slideshow">
   <% delay = 8 %>
 
-  <% @top.each do |cover| %>
+  <% @covers.each do |cover| %>
       <li>
             <span>
               <%= "#{cover.unit.title} #{cover.title}" %>
             </span>
 
             <div class="slide-descriptions">
-              <div class="sl-descr">
+              <div class="sl-descr<%= " info_#{@unit.super_unit.short_url}" unless @unit.nil? %>">
                 <div class="title_info">
                   <%= cover.unit.title %>
                 </div>
@@ -33,11 +33,11 @@
         opacity: 0;
         z-index: 0;
         -webkit-backface-visibility: hidden;
-        -webkit-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
-        -moz-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
-        -o-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
-        -ms-animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
-        animation: imageAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -webkit-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -moz-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -o-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -ms-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
     }
 
     .cb-slideshow li div.slide-descriptions {
@@ -48,14 +48,14 @@
         width: 100%;
         text-align: right;
         opacity: 0;
-        -webkit-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
-        -moz-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
-        -o-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
-        -ms-animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
-        animation: titleAnimation <%= @top.count*delay %>s linear infinite 0s;
+        -webkit-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -moz-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -o-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -ms-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
     }
 
-    <% @top.each_with_index do |cover, i| %>
+    <% @covers.each_with_index do |cover, i| %>
     .cb-slideshow li:nth-child(<%= i+1 %>) span {
         background-image: url(<%= cover.image.url(:big)%>);
     <% if i > 0 %> -webkit-animation-delay: <%= (i)*delay %>s;
@@ -67,7 +67,7 @@
     }
 
     <% end %>
-    <% @top.each_with_index do |cover, i| %>
+    <% @covers.each_with_index do |cover, i| %>
     <% if i > 0 %>
     .cb-slideshow li:nth-child(<%= i+1 %>) div {
         -webkit-animation-delay: <%= (i)*delay %>s;

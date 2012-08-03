@@ -27,7 +27,7 @@
       <div class="half">
         <%= f.label :locale %>
         <br/>
-        <%= f.collection_select(:locale, Language.collection, :cut, :name, :prompt => false) %>
+        <%= f.collection_select(:locale, Language.collection, :cut, :name, {:prompt => false, :selected => I18n.locale}) %>
       </div>
 
       <div class="half">
@@ -93,7 +93,7 @@
 <script language="javascript">
     $(document).ready(function () {
         $("#unit_content").markItUp(mySettings);
-    })
+    });
 
     function updateStuffImage(stuff_image_id, classname) {
         title = $("#" + classname + "_image_" + stuff_image_id + " input[type='text']").val();
@@ -104,5 +104,4 @@
         }
         $.get("/" + classname + "_images/update/" + stuff_image_id + "/" + cover + "/" + preview + "/" + title);
     }
-
 </script>

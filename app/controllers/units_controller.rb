@@ -4,7 +4,6 @@ class UnitsController < ApplicationController
   # GET /units.json
   def index
     @units = Unit.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @units }
@@ -15,8 +14,19 @@ class UnitsController < ApplicationController
   # GET /units/1.json
   def show
     @unit = Unit.find_by_short_url(params[:short_url]) if params[:short_url]
-
     raise NotFound unless @unit
+
+     if @unit.layout == "news"
+       @covers = UnitImage.includes(:unit).where("units.locale = ? and units.welcome_slider = ? and unit_images.cover = ?", I18n.locale, true, true).all
+     end
+
+     if @unit.layout == "projects"
+       @covers = UnitImage.includes(:unit).where("units.layout = ? and units.locale = ? and unit_images.cover = ?", "project", I18n.locale, true).all
+     end
+
+     if @unit.layout == "services"
+       @covers = UnitImage.includes(:unit).where("units.layout = ? and units.locale = ? and unit_images.cover = ?", "service", I18n.locale, true).all
+     end
 
     #if @unit.short_url == "press-about-company"
     #  year = params[:year] if !params[:year].nil?

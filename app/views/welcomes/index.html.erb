@@ -1,5 +1,24 @@
 <%= render "layouts/slider" %>
 <%= render "layouts/sidebar" %>
-<%#= render "layouts/info" %>
-<%= render "layouts/footer" %>
 
+<script type="text/javascript">
+    var SIDEBAR_HIDDEN = true;
+
+    jQuery(function () {
+        $(document).mousemove(function (e) {
+            if (e.pageX <= 233 && SIDEBAR_HIDDEN) {
+                $("#sidebar").animate({
+                    "left":"+=400px"
+                }, "slow");
+                SIDEBAR_HIDDEN = false;
+            }
+
+            if (e.pageX >= 233 && !SIDEBAR_HIDDEN) {
+                $("#sidebar").animate({
+                    "left":"-=400px"
+                }, "slow");
+                SIDEBAR_HIDDEN = true;
+            }
+        });
+    });
+</script>

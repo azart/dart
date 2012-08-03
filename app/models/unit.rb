@@ -32,9 +32,9 @@ class Unit < ActiveRecord::Base
   def super_unit
     @super_unit = self
     loop do
-      @super_unit = @super_unit.unit() if !@super_unit.parent_id.nil?
+      @super_unit = @super_unit.unit() unless @super_unit.parent_id.nil?
       break if @super_unit.parent_id.nil?
-    end if @super_unit
+    end
     @super_unit
   end
 
@@ -71,7 +71,6 @@ class Unit < ActiveRecord::Base
 
 
   def tree
-
     tree = []
     units = Unit.main_menu
     units.each do |fl|
@@ -92,18 +91,10 @@ class Unit < ActiveRecord::Base
 
   private
 
-  #def update_attachements
-  #  unless self.preview_id.nil?
-  #    images = UnitImage.find_all_by_post_id(self.preview_id)
-  #    images.each do |image|
-  #      image.post_id = self.id
-  #      image.save
-  #    end
-  #  end
-  #end
-
   def generate_short_url
-    self.short_url = Russian.transliterate(self.title.downcase.gsub(' ', '-')) if self.short_url.blank? && !self.title.blank?
+    unless self.title.blank?
+      self.short_url = Russian.transliterate(self.title.gsub(' ', '-')).downcase if self.short_url.blank?
+    end
   end
 
   def self.tree
