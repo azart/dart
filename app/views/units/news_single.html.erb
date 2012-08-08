@@ -1,0 +1,39 @@
+<%= render "layouts/slider" %>
+<%= render "units/news_side_bar" %>
+
+<script type="text/javascript">
+    $(function () {
+        foldAllItems();
+
+        $(".menu_about > li > a").click(function (e) {
+            e.preventDefault();
+
+            if ($(this).parent().hasClass("current")) {
+                foldItem($(this).parent().index());
+            } else {
+                foldAllItems();
+                var index = $(this).parent().index();
+                unfoldItem(index);
+            }
+        });
+    });
+
+    function foldAllItems() {
+        $(".news_list").hide();
+        $(".menu_about li").removeClass("current");
+    }
+
+    function foldItem(index) {
+        $(".menu_about li").eq(index).removeClass("current");
+        if ($(".menu_about li").eq(index).find(".news_list").length) {
+            $(".menu_about li").eq(index).find(".news_list").hide("blind");
+        }
+    }
+
+    function unfoldItem(index) {
+        $(".menu_about > li").eq(index).addClass("current");
+        if ($(".menu_about li").eq(index).find(".news_list").length) {
+            $(".menu_about li").eq(index).find(".news_list").show("blind");
+        }
+    }
+</script>

@@ -1,4 +1,6 @@
 Dart::Application.routes.draw do
+  resources :orders
+
   devise_for :users
   match '/language/:lang_cut' => 'welcomes#set_lang'
   match '/unit_images/upload' => 'unit_images#upload'

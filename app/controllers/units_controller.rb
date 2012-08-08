@@ -1,7 +1,6 @@
 class UnitsController < ApplicationController
   load_and_authorize_resource
-  # GET /units
-  # GET /units.json
+
   def index
     @units = Unit.all
     respond_to do |format|
@@ -10,8 +9,6 @@ class UnitsController < ApplicationController
     end
   end
 
-  # GET /units/1
-  # GET /units/1.json
   def show
     @unit = Unit.find_by_short_url(params[:short_url]) if params[:short_url]
     raise NotFound unless @unit
@@ -26,6 +23,11 @@ class UnitsController < ApplicationController
 
      if @unit.layout == "services"
        @covers = UnitImage.includes(:unit).where("units.layout = ? and units.locale = ? and unit_images.cover = ?", "service", I18n.locale, true).all
+     end
+
+     if @unit.layout == "order"
+       @order = Order.new
+       #@covers = UnitImage.includes(:unit).where("units.layout = ? and units.locale = ? and unit_images.cover = ?", "service", I18n.locale, true).all
      end
 
     #if @unit.short_url == "press-about-company"
@@ -47,8 +49,6 @@ class UnitsController < ApplicationController
     end
   end
 
-  # GET /units/new
-  # GET /units/new.json
   def new
     @unit.parent_id = params[:parent_id] if params[:parent_id]
     @unit.layout = @unit.unit.layout if params[:parent_id]
@@ -59,14 +59,11 @@ class UnitsController < ApplicationController
     end
   end
 
-  # GET /units/1/edit
   def edit
     @unit = Unit.find(params[:id])
     render layout: "editor"
   end
 
-  # POST /units
-  # POST /units.json
   def create
     @unit = Unit.new(params[:unit])
 
@@ -81,8 +78,6 @@ class UnitsController < ApplicationController
     end
   end
 
-  # PUT /units/1
-  # PUT /units/1.json
   def update
     @unit = Unit.find(params[:id])
 
@@ -97,8 +92,6 @@ class UnitsController < ApplicationController
     end
   end
 
-  # DELETE /units/1
-  # DELETE /units/1.json
   def destroy
     @unit = Unit.find(params[:id])
     @unit.destroy

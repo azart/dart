@@ -11,6 +11,7 @@ class Layout
         Layout.new(:name => 'Услуги', :cut => "services"),
         Layout.new(:name => 'Услуга', :cut => "service"),
         Layout.new(:name => 'Новости', :cut => "news"),
+        Layout.new(:name => 'Новость', :cut => "news_single"),
         Layout.new(:name => 'Заявка', :cut => "order"),
         Layout.new(:name => 'Контакты', :cut => "contacts"),
         Layout.new(:name => 'Портфолио', :cut => "projects"),

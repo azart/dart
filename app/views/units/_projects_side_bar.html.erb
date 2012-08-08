@@ -13,7 +13,8 @@
                       <ul>
                         <% unit.units.each do |sunit| %>
                             <li>
-                              <%= link_to sunit.title, unit_by_short_url_path(sunit.short_url) %>
+                              <%= link_to sunit.title, "#" %>
+                              <!--unit_by_short_url_path(sunit.short_url)-->
                               <% unless sunit.units.empty? %>
                                   <ul>
                                     <% sunit.units.each do |ssunit| %>

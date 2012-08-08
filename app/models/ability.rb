@@ -8,7 +8,7 @@ class Ability
        else
          can :read, :all
          can :set_lang, Welcome
-         #can :create, Feedback
+         can :create, Order
        end
   end
 end

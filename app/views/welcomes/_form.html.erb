@@ -11,7 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
+    <div class="field">
+      <%= f.label :locale %><br />
+      <%= f.collection_select(:locale, Language.collection, :cut, :name, {:prompt => false, :selected => I18n.locale}) %>
+    </div>
+
+    <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
@@ -20,12 +25,12 @@
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :locale %><br />
-    <%= f.text_field :locale %>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
   </div>
   <div class="field">
     <%= f.label :seo_title %><br />
@@ -43,3 +48,9 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script language="javascript">
+    $(document).ready(function () {
+        $("#welcome_description").markItUp(mySettings);
+    });
+</script>

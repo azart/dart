@@ -33,9 +33,6 @@ en:
       update: "Update"
       submit: "Submit"
       post: "Post"
-#      create: "Создать %{model}"
-#      update: "Сохранить %{model}"
-#      submit: "Сохранить %{model}"
 
   errors:
     messages:
@@ -72,16 +69,15 @@ en:
         name: "Name"
         position: "Position"
         users_list: "Users list"
-      feedback:
-        name: "Ваше имя"
-        phone: "Контактный телефон"
+      order:
+        preview: "Enter data"
+        unit: "Theme"
+        name: "Name"
+        company: "Company"
+        phone: "Phone"
         email: "E-Mail"
-        quest: "Описание вопроса"
-        order: "Заявка"
-        message: "Ваше сообщение"
-        unit-description: "Краткое описание"
-        incoming: "Содержание сообщения"
-        site_mailer: "Сервис почтовых оповещений"
+        description: "Description"
+        ok: "Ok"
       unit:
         title: "Title"
         description: "Description"

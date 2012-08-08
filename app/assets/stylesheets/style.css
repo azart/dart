@@ -640,12 +640,12 @@ h1 {
 
 .poap {
     background: url("poap.png") repeat scroll 0 0 transparent;
-    height: 441px;
-    margin: 70px auto;
-    padding: 20px 0;
-    position: relative;
+    height: 420px;
+    left: 335px;
+    padding: 20px 144px;
+    position: absolute;
     text-align: center;
-    width: 665px;
+    top: 70px;
     z-index: 99;
 }
 

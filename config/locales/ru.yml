@@ -72,16 +72,15 @@ ru:
         name: "Имя"
         position: "Должность"
         users_list: "Список пользователей"
-      feedback:
-        name: "Ваше имя"
+      order:
+        preview: "Заполните необходимые данные"
+        unit: "Предмет заявки"
+        name: "Ф.И.О."
+        company: "Компания"
         phone: "Контактный телефон"
         email: "E-Mail"
-        quest: "Описание вопроса"
-        order: "Заявка"
-        message: "Ваше сообщение"
-        unit-description: "Краткое описание"
-        incoming: "Содержание сообщения"
-        site_mailer: "Сервис почтовых оповещений"
+        description: "Описание"
+        ok: "Ваша заявка принята."
       unit:
         title: "Заголовок"
         description: "Описание"
@@ -98,7 +97,6 @@ ru:
         seo_keywords: "SEO Keywords"
         seo_description: "SEO Description"
         unit_image: "Фотографии/изображения"
-#        unit_file: "Файлы"
         preview: "Превью (Изображение в шапке или списке)"
         more: "Подробнее"
 

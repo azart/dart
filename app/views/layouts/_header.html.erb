@@ -6,6 +6,10 @@
           <li><%= link_to image_tag("#{locale.cut}.png", :alt => locale.name), "/language/#{locale.cut}" %></li>
       <% end %>
     </ul>
-    <span><%= @welcome.phone %></span>
+    <%= link_to t('backend.actions.edit'), edit_welcome_path(@welcome), :class => "ui-icon ui-icon-pencil", :title => t('backend.actions.edit') if can?(Welcome, :edit) %>
+
+    <span>
+      <%= @welcome.phone %>
+    </span>
   </div>
 </div>

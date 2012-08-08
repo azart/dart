@@ -1,36 +1,26 @@
 <%= render "units/order_side_bar" %>
 
-<%= link_to 'Edit', edit_unit_path(@unit) %> |
-<%= link_to 'Back', units_path %>
+<% unless @unit == @unit.super_unit %>
+    <div class="poap">
+      <%= form_for(@order, :remote => true) do |f| %>
+          <%= f.hidden_field:unit_id, :value => @unit.id %>
 
+          <%= f.label :name %>
+          <%= f.text_field :name, :class => "input" %>
 
+          <%= f.label :company %>
+          <%= f.text_field :company, :class => "input" %>
 
-<div id="slider">
-  <%= image_tag "1.jpg", :width => 1200, :height => 700 %>
-</div>
+          <%= f.label :phone %>
+          <%= f.text_field :phone, :class => "input" %>
 
-<script type="text/javascript">
-    $(function ChangeWidthHeight() {
-        if ($(window).height() > 626) {
+          <%= f.label :email %>
+          <%= f.text_field :email, :class => "input" %>
 
-        }
-        $('#container').css("height", +$(window).height()+'px');
-        $('#sidebar').css("height", +$(window).height()+'px');
-        $('#slider img').css("height", +$(window).height()+'px');
-        $('#container').css("width",+$(window).width()+'px');
-        $('#slider img').css("width",+$(window).width()+'px');
+          <%= f.label :description %>
+          <%= f.text_area :description, :class => "textarea" %>
 
-    });
-    $(function ChangeWidthHeight() {
-        $(window).resize(function () {
-            if ($(window).height() > 626) {
-                $('#container').css("height", +$(window).height()+'px');
-                $('#sidebar').css("height", +$(window).height()+'px');
-                $('#slider img').css("height", +$(window).height()+'px');
-
-            }
-            $('#container').css("width",+$(window).width()+'px');
-            $('#slider img').css("width",+$(window).width()+'px');
-        });
-    });
-</script>
+          <%= f.submit t("helpers.submit.post"), :class => "button" %>
+      <% end %>
+    </div>
+<% end %>

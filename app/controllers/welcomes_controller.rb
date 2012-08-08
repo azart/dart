@@ -43,6 +43,7 @@ class WelcomesController < ApplicationController
   # GET /welcomes/1/edit
   def edit
     @welcome = Welcome.find(params[:id])
+    render layout: "editor"
   end
 
   # POST /welcomes

@@ -59,9 +59,9 @@ class CreateUnits < ActiveRecord::Migration
     Unit.create(:locale => "ru", :title => "Самая новая новость", :parent_id => 32, :unit_order => nil, :layout => "news", :welcome_slider => true, :description => "Развернутое описание объема заметного в нексколько строчек.")
 
     Unit.create(:locale => "ru", :title => "Оставить заявку", :unit_order => 5, :layout => "order")
-    Unit.create(:locale => "ru", :title => "Проектирование и строительство", :parent_id => 35, :unit_order => 5, :layout => "order")
-    Unit.create(:locale => "ru", :title => "Дизайн интерьеров", :parent_id => 35, :unit_order => 5, :layout => "order")
-    Unit.create(:locale => "ru", :title => "Expooffice", :parent_id => 35, :unit_order => 5, :layout => "order")
+    Unit.create(:locale => "ru", :title => "Проектирование и строительство", :parent_id => 34, :unit_order => 5, :layout => "order", :short_url => "order_project_building")
+    Unit.create(:locale => "ru", :title => "Дизайн интерьеров", :parent_id => 34, :unit_order => 5, :layout => "order", :short_url => "order_interior_design")
+    Unit.create(:locale => "ru", :title => "Expooffice", :parent_id => 34, :unit_order => 5, :layout => "order", :short_url => "order_expo_office")
 
     Unit.create(:locale => "ru", :title => "Контакты", :unit_order => 6, :layout => "contacts", :content => "<ul class='menu_about' style='height: 248px;'><li class='contact'><span><div class='contact_box'><p>Тел/факс : <br>(495) 735-43-44<br>АДРЕС ОФИСА : г.Москва, ул.Азовская, д .24, офис 44 ТЦ 'Азовский'</p></div></span></li><li class='contact'><span><div class='contact_box'><p>Тел/факс: <br>(495) 755-68-62<br>(ЮДЕНКОВ АЛЕКСАНДР)<br>АДРЕС ПРОИЗВОДСТВА : г.Москва, Очаковское шоссе, д .36 а</p></div></span></li><li class='contact no_border'><span><div class='contact_box'><p>E-MAIL :<br/>info @dart-expo.ru</p></div></span></li></ul>")
   end
