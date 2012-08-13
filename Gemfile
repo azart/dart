@@ -5,7 +5,7 @@ gem 'rails', '3.2'
 gem 'cancan'
 gem 'devise'
 #gem "galetahub-simple_captcha", :require => "simple_captcha"
-#gem "gmaps4rails"
+gem "gmaps4rails"
 gem 'paperclip'
 gem 'russian'
 gem 'sqlite3'

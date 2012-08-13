@@ -25,6 +25,10 @@ class UnitsController < ApplicationController
        @covers = UnitImage.includes(:unit).where("units.layout = ? and units.locale = ? and unit_images.cover = ?", "service", I18n.locale, true).all
      end
 
+     if @unit.layout == "contacts"
+       @locations = Location.where(:locale => "ru").all.to_gmaps4rails
+     end
+
      if @unit.layout == "order"
        @order = Order.new
        #@covers = UnitImage.includes(:unit).where("units.layout = ? and units.locale = ? and unit_images.cover = ?", "service", I18n.locale, true).all

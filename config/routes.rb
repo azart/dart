@@ -1,4 +1,6 @@
 Dart::Application.routes.draw do
+  resources :locations
+
   resources :orders
 
   devise_for :users
