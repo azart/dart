@@ -10,7 +10,7 @@
             <div class="slide-descriptions">
               <div class="sl-descr<%= " info_#{@unit.super_unit.short_url}" unless @unit.nil? %>">
                 <div class="title_info">
-                  <%= cover.unit.title %>
+                  <%= "#{cover.unit.title} #{cover.title}" %>
                 </div>
                 <%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(cover.unit.short_url), :class => "more" %>
               </div>
