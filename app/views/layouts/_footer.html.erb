@@ -1,7 +1,7 @@
 <div id="footer">
   <ul>
     <% @main_menu.each_with_index do |unit, i| %>
-        <li <%= "class='current'" if @unit && unit == @unit.super_unit %>><%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => ("menu_#{i}" unless i == 0) %></li>
+        <li <%= "class='current'" if @unit && unit == @unit.super_unit %>><%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => ( i == 0 ? "menu" : "menu_#{i}") %></li>
     <% end %>
   </ul>
   <p><%= t("activerecord.attributes.welcome.copyright") %></p>

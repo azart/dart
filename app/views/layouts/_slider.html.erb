@@ -1,5 +1,5 @@
 <ul class="cb-slideshow">
-  <% delay = 8 %>
+  <% delay = 6 %>
 
   <% @covers.each do |cover| %>
       <li>
@@ -7,14 +7,12 @@
               <%= "#{cover.unit.title} #{cover.title}" %>
             </span>
 
-            <div class="slide-descriptions">
-              <div class="sl-descr<%= " info_#{@unit.super_unit.short_url}" unless @unit.nil? %>">
-                <div class="title_info">
-                  <%= "#{cover.unit.title} #{cover.title}" %>
-                </div>
-                <%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(cover.unit.short_url), :class => "more" %>
-              </div>
-            </div>
+        <div class="sl-descr<%= " info_#{@unit.super_unit.layout}" unless @unit.nil? %>">
+          <%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(cover.unit.short_url), :class => "more" %>
+          <div class="title_info">
+            <%= "#{cover.unit.title} #{cover.title}" %>
+          </div>
+        </div>
       </li>
   <% end %>
 </ul>
@@ -40,12 +38,11 @@
         animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
     }
 
-    .cb-slideshow li div.slide-descriptions {
+    .cb-slideshow li .sl-descr {
         z-index: 1000;
         position: absolute;
         bottom: 21%;
-        left: 0;
-        width: 100%;
+        right: 0;
         text-align: right;
         opacity: 0;
         -webkit-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
@@ -69,7 +66,7 @@
     <% end %>
     <% @covers.each_with_index do |cover, i| %>
     <% if i > 0 %>
-    .cb-slideshow li:nth-child(<%= i+1 %>) div {
+    .cb-slideshow li:nth-child(<%= i+1 %>) .sl-descr {
         -webkit-animation-delay: <%= (i)*delay %>s;
         -moz-animation-delay: <%= (i)*delay %>s;
         -o-animation-delay: <%= (i)*delay %>s;
