@@ -8,8 +8,9 @@
 
   <div class="social">
     <p><%= t("activerecord.attributes.welcome.follow") %></p>
-    <%= link_to image_tag("vk.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
-    <%= link_to image_tag("face.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
-    <%= link_to image_tag("tw.png", :alt => @welcome.seo_title || @welcome.title), "vk.com" %>
+    <%= link_to image_tag("linkedin.png", :alt => @welcome.seo_title || @welcome.title), "linkedin.com", :target => "_blank" %>
+    <%= link_to image_tag("face.png", :alt => @welcome.seo_title || @welcome.title), "vk.com", :target => "_blank" %>
+    <%= link_to image_tag("vk.png", :alt => @welcome.seo_title || @welcome.title), "vk.com", :target => "_blank" %>
+    <%= link_to image_tag("tw.png", :alt => @welcome.seo_title || @welcome.title), "vk.com", :target => "_blank" %>
   </div>
 </div>

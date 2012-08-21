@@ -3,12 +3,19 @@
 <%= gmaps({
                   :map_options => {
                           :auto_zoom => false,
-                          :zoom => 11,
+                          :zoom => 12,
                           :do_clustering => true
                   },
                   :markers => {
                           :data => @locations
                   }
+#,
+#                  :direction   => {
+#                          :data => {
+#                                  :from => "Paris, france",
+#                                  :to => "Toulon, france"
+#                                  }
+#                  }
           })
 %>
 

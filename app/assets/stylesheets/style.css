@@ -551,11 +551,11 @@ h1 {
     margin-left: 5px;
 }
 
-.about_title h1 {
+.about_title h1, .about_title h1 a {
     color: #eb0008;
 }
 
-.service_title h1 {
+.service_title h1, .service_title h1 a {
     color: #9c00ff;
 }
 
@@ -711,7 +711,7 @@ h1 {
     border: 1px solid #000;
 }
 
-.portfolio_title {
+.portfolio_title, .portfolio_title a {
     color: #5bbd03;
 }
 
@@ -1142,16 +1142,16 @@ h1 {
 	}
 	8% {
 	    opacity: 1;
-	    -webkit-transform: scale(1.05);
+	    -webkit-transform: scale(1.01);
 	    -webkit-animation-timing-function: ease-out;
 	}
 	17% {
 	    opacity: 1;
-	    -webkit-transform: scale(1.1);
+	    -webkit-transform: scale(1.03);
 	}
 	25% {
 	    opacity: 0;
-	    -webkit-transform: scale(1.1);
+	    -webkit-transform: scale(1.03);
 	}
 	100% { opacity: 0 }
 }
@@ -1162,16 +1162,16 @@ h1 {
 	}
 	8% {
 	    opacity: 1;
-	    -moz-transform: scale(1.05);
+	    -moz-transform: scale(1.01);
 	    -moz-animation-timing-function: ease-out;
 	}
 	17% {
 	    opacity: 1;
-	    -moz-transform: scale(1.1);
+	    -moz-transform: scale(1.03);
 	}
 	25% {
 	    opacity: 0;
-	    -moz-transform: scale(1.1);
+	    -moz-transform: scale(1.03);
 	}
 	100% { opacity: 0 }
 }
@@ -1182,16 +1182,16 @@ h1 {
 	}
 	8% {
 	    opacity: 1;
-	    -o-transform: scale(1.05);
+	    -o-transform: scale(1.01);
 	    -o-animation-timing-function: ease-out;
 	}
 	17% {
 	    opacity: 1;
-	    -o-transform: scale(1.1);
+	    -o-transform: scale(1.03);
 	}
 	25% {
 	    opacity: 0;
-	    -o-transform: scale(1.1);
+	    -o-transform: scale(1.03);
 	}
 	100% { opacity: 0 }
 }
@@ -1202,16 +1202,16 @@ h1 {
 	}
 	8% {
 	    opacity: 1;
-	    -ms-transform: scale(1.05);
+	    -ms-transform: scale(1.01);
 	    -ms-animation-timing-function: ease-out;
 	}
 	17% {
 	    opacity: 1;
-	    -ms-transform: scale(1.1);
+	    -ms-transform: scale(1.03);
 	}
 	25% {
 	    opacity: 0;
-	    -ms-transform: scale(1.1);
+	    -ms-transform: scale(1.03);
 	}
 	100% { opacity: 0 }
 }
@@ -1222,7 +1222,7 @@ h1 {
 	}
 	8% {
 	    opacity: 1;
-	    transform: scale(1.05);
+	    transform: scale(1.01);
 	    animation-timing-function: ease-out;
 	}
 	17% {
