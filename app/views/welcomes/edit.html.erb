@@ -1,3 +1,15 @@
 <div id="sidebar" class="edit_form">
   <%= render 'form' %>
+  <br/>
+  <ul class="locations">
+    <% @locations.each do |location| %>
+        <li>
+          <%= link_to 'Show', location %>
+          <%= link_to 'Edit', edit_location_path(location) %>
+          <%= link_to 'Destroy', location, confirm: 'Are you sure?', method: :delete %>
+          <br/>
+          <%= raw location.country %> / <%= raw location.city %> / <%= raw location.building %> / <%= raw location.more %>
+        </li>
+    <% end %>
+  </ul>
 </div>

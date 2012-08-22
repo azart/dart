@@ -1,13 +1,11 @@
-<%= render "units/about_awards_side_bar" %>
-
-<div id="awards">
+<div id="clients">
   <% @unit.unit_images.each do |cover| %>
-      <div class="award">
-        <%= image_tag cover.image.url(:awards), :alt => cover.title %>
+      <div class="client">
+        <%= image_tag cover.image.url(:original), :alt => cover.title %>
       </div>
   <% end %>
   <% if can?(Unit, :edit) %>
-      <div class="award">
+      <div class="client">
         <%= render "units/admin_panel", :target => @unit %>
       </div>
   <% end %>

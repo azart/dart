@@ -6,6 +6,7 @@ class UnitImage < ActiveRecord::Base
   has_attached_file :image,
                     :styles => {
                         :preview_item => "213x81#",
+                        :awards => "170x244#",
                         :big => "1200x700#"
                     },
                     :default_url =>  "/unit_images/rails.png",

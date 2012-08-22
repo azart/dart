@@ -1,6 +1,7 @@
-
 class WelcomesController < ApplicationController
   load_and_authorize_resource
+
+  before_filter :get_locations, :only => [ :new, :edit ]
 
   def set_lang
     raise NotFound unless Language.include?(params[:lang_cut])
@@ -89,4 +90,12 @@ class WelcomesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def get_locations
+    @locations = Location.where("locale = ?", I18n.locale)
+  end
+
+
 end

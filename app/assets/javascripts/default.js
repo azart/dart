@@ -18,4 +18,29 @@ $(document).ready(function () {
             $("#sidebar").css("height", sidebarHeight)
         });
     }
+
+    if ($('#clients').length > 0) {
+        $('#clients').masonry({
+            itemSelector:'.client',
+            isAnimated:true,
+            animationOptions:{
+                duration:750,
+                easing:'linear',
+                queue:false
+            }
+        });
+    }
+
+    if ($('#awards').length > 0) {
+        $('#awards').masonry({
+            itemSelector:'.client',
+            isAnimated:true,
+            animationOptions:{
+                duration:750,
+                easing:'award',
+                queue:false
+            }
+        });
+    }
 });
+

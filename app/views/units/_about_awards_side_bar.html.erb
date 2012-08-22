@@ -1,22 +1,15 @@
-<!--<div id="sidebar_license">-->
-<div id="sidebar">
+<div id="sidebar" style="top: -21px;">
   <div class="description about_title">
-    <h1><%= @unit.super_unit.title %><%= link_to "", unit_by_short_url_path(@unit.super_unit.short_url), :class => "back" %></h1>
-
+    <h1><%= @unit.super_unit.title %><%= render "units/admin_panel", :target => @unit %></h1>
     <div class="top"></div>
     <div class="menu_wrapper">
       <ul class="menu_about">
-        <li class="current no_border">
-          <%= link_to raw("<span>#{@unit.title}</span>"), unit_by_short_url_path(@unit.short_url), :class => "red" %>
-        </li>
+        <% @unit.super_unit.units.each do |unit| %>
+            <li <%= "class='current'" if @unit && unit == @unit %>>
+              <%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => "red" %>
+            </li>
+        <% end %>
       </ul>
-      <div class="bottom"></div>
-      <div class="text">
-        <p>
-          <%= raw @unit.content %>
-        </p>
-        <%= render "units/admin_panel", :target => @unit %>
-      </div>
     </div>
   </div>
 </div>

@@ -14,18 +14,16 @@ class Location < ActiveRecord::Base
 
   def gmaps4rails_marker_picture
     {
-        "picture" => "/assets/logo.png",
-        "width" => 164,
-        "height" => 50,
-        "marker_anchor" => [ 70, 60],
-        "shadow_picture" => "/assets/shadow_marker.png" ,
-        "shadow_width" => "244",
-        "shadow_height" => "56",
-        "shadow_anchor" => [70, 55]
+        "picture" => "/assets/dart-map.png",
+        "width" => 126,
+        "height" => 34
+        #"marker_anchor" => [ 70, 60],
+        #"shadow_picture" => "/assets/shadow_marker.png" ,
+        #"shadow_width" => "244",
+        #"shadow_height" => "56",
+        #"shadow_anchor" => [70, 55]
     }
   end
-
-
 
 
 end

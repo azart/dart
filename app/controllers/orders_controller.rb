@@ -56,6 +56,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        OrderMailer.new_order(@order).deliver
+
         format.js { render action: "ok", :layout => false }
         format.json { render json: @order, status: :created, location: @order }
       else

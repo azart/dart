@@ -17,22 +17,32 @@
   <!--[if IE 7]><%= stylesheet_link_tag :ie7 %><![endif]-->
   <!--[if IE 8]><%= stylesheet_link_tag :ie8 %><![endif]-->
 
+  <script type="text/javascript">
+      $(document).ready(function () {
+          sidebarHeight = $(window).height() - 140;
+          $(".poap").css("height", sidebarHeight);
+
+          $(window).resize(function () {
+              sidebarHeight = $(window).height() - 140;
+              $(".poap").css("height", sidebarHeight)
+          });
+
+      });
+  </script>
+
 </head>
 
 <body class="fullheight">
-
 <% unless notice.nil? %>
     <p id="notice"><%= notice %></p>
 <% end %>
-
-
 
 <div id="container">
   <%= render "layouts/header" %>
   <%= yield %>
   <%= render "layouts/footer" %>
 </div>
-
 <%= yield :scripts %>
+
 </body>
 </html>

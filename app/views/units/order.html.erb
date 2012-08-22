@@ -1,26 +1,43 @@
-<%= render "units/order_side_bar" %>
+<div id="sidebar" class="edit_form order">
+  <%= form_for(@order, :remote => true) do |f| %>
 
-<% unless @unit == @unit.super_unit %>
-    <div class="poap">
-      <%= form_for(@order, :remote => true) do |f| %>
-          <%= f.hidden_field:unit_id, :value => @unit.id %>
+      <div class="order-description">
+          <%= raw t("activerecord.attributes.order.preview") %>
+      </div>
 
-          <%= f.label :name %>
-          <%= f.text_field :name, :class => "input" %>
+      <div>
+        <%= f.label :unit_id %>
+        <%= f.collection_select :unit_id, @unit.super_unit.units, :id, :title %>
+        <div class="clear"></div>
+      </div>
 
-          <%= f.label :company %>
-          <%= f.text_field :company, :class => "input" %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
 
-          <%= f.label :phone %>
-          <%= f.text_field :phone, :class => "input" %>
+      <div>
+        <%= f.label :company %>
+        <%= f.text_field :company %>
+      </div>
 
-          <%= f.label :email %>
-          <%= f.text_field :email, :class => "input" %>
+      <div>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
 
-          <%= f.label :description %>
-          <%= f.text_area :description, :class => "textarea" %>
+      <div>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
 
-          <%= f.submit t("helpers.submit.post"), :class => "button" %>
-      <% end %>
-    </div>
-<% end %>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </div>
+
+      <div>
+        <%= f.submit t("helpers.submit.post"), :class => "button" %>
+      </div>
+  <% end %>
+</div>

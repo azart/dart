@@ -18,12 +18,6 @@ img {
     border: none;
 }
 
-body {
-    line-height: 1;
-    min-height: 600px;
-    overflow: hidden;
-}
-
 .fullheight {
     overflow: auto;
 }
@@ -52,18 +46,29 @@ ul, ol {
 
 html, body {
     font-size: 100%;
-    /*width: 100%;*/
-    /*height: 100%;*/
     padding: 0;
     margin: 0;
 }
 
 body {
-    /*min-height: 100%;*/
-    /*height: 100%;*/
-    min-height: 700px;
-    background: #CCCCCC;
+    min-width: 980px;
+    min-height: 600px;
+
+    width: 100%;
+    height: 100%;
+
     font-family: Arial, Helvetica, sans-serif;
+
+    overflow: hidden;
+    /*background: #CCCCCC;*/
+
+    background: url(default-bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    line-height: 1;
 }
 
 a {
@@ -75,7 +80,7 @@ a {
     position: relative;
     /*min-width: 1024px;*/
     /*min-height: 100%;*/
-    /*height: 100%;*/
+    height: 100%;
     width: 100%;
     z-index: 1;
 }
@@ -642,7 +647,7 @@ h1 {
 
 .poap {
     background: url("poap.png") repeat scroll 0 0 transparent;
-    height: 420px;
+    height: 444px;
     left: 335px;
     padding: 20px 144px;
     position: absolute;
@@ -692,20 +697,20 @@ h1 {
     margin: 4px 0 0;
 }
 
-.button {
-    background: url(send.png) no-repeat;
-    width: 99px;
-    height: 30px;
-    text-indent: -9999px;
-    border: 0;
-    float: right;
-    margin: 8px 5px 0 0;
-    cursor: pointer;
-}
+/*.button {*/
+    /*background: url(send.png) no-repeat;*/
+    /*width: 99px;*/
+    /*height: 30px;*/
+    /*text-indent: -9999px;*/
+    /*border: 0;*/
+    /*float: right;*/
+    /*margin: 8px 5px 0 0;*/
+    /*cursor: pointer;*/
+/*}*/
 
-.button:hover {
-    background: url(send.png) no-repeat 0 -30px;
-}
+/*.button:hover {*/
+    /*background: url(send.png) no-repeat 0 -30px;*/
+/*}*/
 
 .poap img {
     border: 1px solid #000;
@@ -869,7 +874,7 @@ h1 {
     position: absolute;
     z-index: 2;
     top: 0;
-    right: -9px;
+    right: -31px;
     height: 100%;
     width: 38px;
     background-position: right top;
@@ -886,6 +891,7 @@ h1 {
     padding-left: 10px;
     left: 0;
     font-size: 13px;
+    white-space: nowrap;
 }
 
 * html .cuselText {
@@ -926,7 +932,7 @@ h1 {
     display: block;
     visibility: hidden;
     position: absolute;
-    left: 15px;
+    left: 0;
     top: 100%;
     min-width: 100%;
     width: auto;
@@ -1001,7 +1007,7 @@ h1 {
     overflow: hidden;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-    border: 1px solid #000;
+    border: 1px solid #00A8FF;
 
     -webkit-box-shadow: 0px 5px 21px 1px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 5px 21px 1px rgba(0, 0, 0, 0.5);
@@ -1101,28 +1107,87 @@ h1 {
     box-shadow: 2px 5px 8px 5px rgba(0, 0, 0, 0.3);
 }
 
-.devise form input[type="email"], .devise form input[type="password"], .devise form input[type="checkbox"] {
-    margin: 0 auto;
-    width: 55%;
-    border: 1px solid #9C00FF;
-    display: block;
-    height: 34px;
-    margin: 0 auto;
+.order-description {
+    width: 89%;
+    font-weight: bold;
+    margin: 21px auto 34px;
 }
 
 .devise form label, .devise form i, .devise p, .devise h3 {
     margin: 13px auto 8px auto;
-    width: 55%;
+    width: 89%;
     display: block;
 }
+
+.order form label {
+    margin: 13px auto 8px auto;
+    width: 89%;
+    display: block;
+}
+
+.devise form input[type="email"], .devise form input[type="password"],
+.devise form input[type="checkbox"] {
+    margin: 0 auto;
+    width: 89%;
+    border: 1px solid #9C00FF;
+    display: block;
+    height: 24px;
+    margin: 0 auto;
+}
+
+.order form input[type="email"], .order form input[type="text"], .order form textarea {
+    margin: 0 auto;
+    width: 89%;
+
+    border: 1px solid #00A8FF;
+    display: block;
+    height: 24px;
+    margin: 0 auto;
+}
+
+.order form textarea {
+    height: 89px;
+}
+
 
 .devise form input[type="submit"], .actions input[type="submit"] {
     -webkit-border-radius: 21px;
     border-radius: 21px;
     display: block;
     height: 34px;
-    margin: 34px auto;
+    margin: 21px auto 89px;
     border: 1px solid #9C00FF;
+}
+
+.order form input[type="submit"], .actions input[type="submit"] {
+    -webkit-border-radius: 21px;
+    border-radius: 21px;
+    display: block;
+    height: 34px;
+    margin: 21px auto 89px;
+    border: 1px solid #00A8FF;
+}
+
+.order form .cusel-container {
+    width: 55%;
+
+}
+
+#clients {
+    margin: 89px 34px;
+}
+
+#clients .client {
+    margin: 13px;
+}
+
+#awards {
+    margin: 89px 34px 89px 340px;
+}
+
+#awards .award{
+    margin: 21px;
+    float: left;
 }
 
 .cb-slideshow,
@@ -1314,11 +1379,27 @@ h1 {
 	100% { opacity: 0 }
 }
 /* Show at least something when animations not supported */
-.no-cssanimations .cb-slideshow li span{
+.no-cssanimations .cb-slideshow li span {
     opacity: 1;
 }
 
 .sl-descr {
     float: right;
     z-index: 1000;
+}
+
+.new_order .cusel {
+    width: 210px !important;
+    margin-left: 34px;
+
+}
+
+.new_order .cusel .cuselActive {
+    background: none repeat scroll 0 0 #00A8FF;
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.new_order .cusel span, .cuselText {
+    text-align: left;
 }

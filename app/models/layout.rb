@@ -15,6 +15,7 @@ class Layout
         Layout.new(:name => 'Заявка', :cut => "order"),
         Layout.new(:name => 'Контакты', :cut => "contacts"),
         Layout.new(:name => 'Портфолио', :cut => "projects"),
+        Layout.new(:name => 'Клиенты', :cut => "clients"),
         Layout.new(:name => 'Проект', :cut => "project")
     ]
     list

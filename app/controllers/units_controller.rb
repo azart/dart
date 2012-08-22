@@ -46,7 +46,11 @@ class UnitsController < ApplicationController
 
     respond_to do |format|
       format.html {
-        render action: @unit.layout
+        if @unit.layout == "order"
+          render action: @unit.layout, :layout => "order"
+        else
+          render action: @unit.layout
+        end
       }
       format.xml { render xml: @unit }
       format.json { render json: @unit }
