@@ -12,6 +12,12 @@
     <% end %>
 
     <div class="field">
+      <%= f.label :locale %>
+      <br/>
+      <%= f.collection_select(:locale, Language.collection, :cut, :name, {:prompt => false, :selected => I18n.locale}) %>
+    </div>
+
+    <div class="field">
       <%= f.label :country %>
       <br/>
       <%= f.text_field :country %>
@@ -21,17 +27,18 @@
       <br/>
       <%= f.text_field :city %>
     </div>
-    <div class="field">
-      <%= f.label :building %>
-      <br/>
-      <%= f.text_field :building %>
-    </div>
+
     <div class="field">
       <%= f.label :more %>
       <br/>
       <%= f.text_field :more %>
     </div>
 
+    <div class="field">
+      <%= f.label :building %>
+      <br/>
+      <%= f.text_field :building %>
+    </div>
     <div class="field">
       <%= f.label :latitude %>
       <br/>
