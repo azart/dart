@@ -5,5 +5,5 @@
 //= require gmaps4rails/gmaps4rails.base.js
 //= require gmaps4rails/gmaps4rails.googlemaps.js
 //= require gmaps4rails/gmaps4rails.mapquest.js
-//= require jquery.masonry.min
+//= require jquery.masonry
 //= require default

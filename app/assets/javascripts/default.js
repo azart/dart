@@ -21,25 +21,25 @@ $(document).ready(function () {
 
     if ($('#clients').length > 0) {
         $('#clients').masonry({
-            itemSelector:'.client',
-            isAnimated:true,
-            animationOptions:{
-                duration:750,
-                easing:'linear',
-                queue:false
-            }
+            itemSelector:'.client'
+//            isAnimated:true,
+//            animationOptions:{
+//                duration:750,
+//                easing:'linear',
+//                queue:false
+//            }
         });
     }
 
     if ($('#awards').length > 0) {
         $('#awards').masonry({
-            itemSelector:'.client',
-            isAnimated:true,
-            animationOptions:{
-                duration:750,
-                easing:'award',
-                queue:false
-            }
+            itemSelector:'.award'
+//            isAnimated:true,
+//            animationOptions:{
+//                duration:750,
+//                easing:'linear',
+//                queue:false
+//            }
         });
     }
 });
@@ -47,7 +47,7 @@ $(document).ready(function () {
 function showAwardsImage(url) {
     $("#awards-big").css("background", "url(" + url + ") no-repeat center center fixed;")
     $("#awards-big").show();
-    $("#awards-big").click(function (){
+    $("#awards-big").click(function () {
         $("#awards-big").hide();
         $("#awards-big").css("background", "url(default-bg.jpg) no-repeat center center fixed;")
     });
