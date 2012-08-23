@@ -5,7 +5,7 @@
 <div id="awards">
   <% @unit.unit_images.each do |cover| %>
       <div class="award">
-        <%= image_tag cover.image.url(:awards), :alt => cover.title, :onclick => "showAwardsImage('#{cover.image.url(:big)}')" %>
+        <%= image_tag cover.image.url(:awards), :alt => cover.title, :onclick => "showAwardsImage('#{cover.image.url(:original)}')" %>
       </div>
   <% end %>
   <% if can?(Unit, :edit) %>
