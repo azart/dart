@@ -44,3 +44,11 @@ $(document).ready(function () {
     }
 });
 
+function showAwardsImage(url) {
+    $("#awards-big").css("background", "url(" + url + ") no-repeat center center fixed;")
+    $("#awards-big").show();
+    $("#awards-big").click(function (){
+        $("#awards-big").hide();
+        $("#awards-big").css("background", "url(default-bg.jpg) no-repeat center center fixed;")
+    });
+}

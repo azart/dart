@@ -33,7 +33,7 @@ class Unit < ActiveRecord::Base
     @super_unit = self
     loop do
       @super_unit = @super_unit.unit() unless @super_unit.parent_id.nil?
-      break if @super_unit.parent_id.nil?
+      break if @super_unit.nil? || @super_unit.parent_id.nil?
     end
     @super_unit
   end

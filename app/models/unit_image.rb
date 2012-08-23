@@ -9,7 +9,7 @@ class UnitImage < ActiveRecord::Base
                         :awards => "170x244#",
                         :big => "1200x700#"
                     },
-                    :default_url =>  "/unit_images/rails.png",
+                    :default_url =>  "missing.png",
                     :url =>  "/unit_images/:id/:style_:basename.:extension"
 
   validates_attachment_presence :image, :message => I18n.t("paperclip.errors.presence")

@@ -18,6 +18,8 @@ en:
       destroy: "Удалить"
       edit: "Изменить"
       show: "Посмотреть"
+      create: "New"
+      create_location: "New location"
       please_select: "Выберите..."
       success_create: "%{model} успешно создан."
       success_update: "%{model} успешно обновлён."
@@ -58,7 +60,7 @@ en:
     attributes:
       welcome:
         more: "More"
-        copyright: "© Copyright 2012 3D ART"
+        copyright: "© Copyright 2012 DART EXPO"
         follow: "Follow us on social networks"
       user:
         role: "Role"

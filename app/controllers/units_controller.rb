@@ -10,7 +10,7 @@ class UnitsController < ApplicationController
   end
 
   def show
-    @unit = Unit.find_by_short_url(params[:short_url]) if params[:short_url]
+    @unit = Unit.find_by_short_url_and_locale(params[:short_url], I18n.locale) if params[:short_url]
     raise NotFound unless @unit
 
      if @unit.layout == "news"
@@ -26,7 +26,7 @@ class UnitsController < ApplicationController
      end
 
      if @unit.layout == "contacts"
-       @locations = Location.where(:locale => "ru").all.to_gmaps4rails
+       @locations = Location.where(:locale => I18n.locale).all.to_gmaps4rails
      end
 
      if @unit.layout == "order"

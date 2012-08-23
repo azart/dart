@@ -1,9 +1,11 @@
+<div id="awards-big"></div>
+
 <%= render "units/about_awards_side_bar" %>
 
 <div id="awards">
   <% @unit.unit_images.each do |cover| %>
       <div class="award">
-        <%= image_tag cover.image.url(:awards), :alt => cover.title %>
+        <%= image_tag cover.image.url(:awards), :alt => cover.title, :onclick => "showAwardsImage('#{cover.image.url(:big)}')" %>
       </div>
   <% end %>
   <% if can?(Unit, :edit) %>

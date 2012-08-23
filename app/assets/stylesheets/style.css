@@ -224,10 +224,12 @@ h2 {
     z-index: 1000;
 }
 
+.info_projects .title_info,
 .info_portfolio .title_info {
     background: url(more_bg.png) repeat-x 0 -151px;
 }
 
+.info_projects .more,
 .info_portfolio .more {
     background: url(more.png) no-repeat 0 -44px;
 }
@@ -248,10 +250,12 @@ h2 {
     background: url(more.png) no-repeat 0 -134px;
 }
 
+.info_services .title_info,
 .info_service .title_info {
     background: url(more_bg.png) repeat-x 0 -77px;
 }
 
+.info_services .more,
 .info_service .more {
     background: url(more.png) no-repeat 0 -179px;
 }
@@ -382,7 +386,7 @@ h2 {
     font-size: 11px;
     color: #3a3a3a;
     float: left;
-    margin: 8px 0 0 50px;
+    margin: 8px 5px 0 50px;
 }
 
 .social {
@@ -1188,6 +1192,7 @@ h1 {
 #awards .award{
     margin: 21px;
     float: left;
+    cursor: pointer;
 }
 
 .cb-slideshow,
@@ -1402,4 +1407,24 @@ h1 {
 
 .new_order .cusel span, .cuselText {
     text-align: left;
+}
+
+#awards-big {
+    display: none;
+
+    z-index: 21000;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: url(default-bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    -o-background-size: auto;
+    background-size: auto;
+    cursor: pointer;
 }
