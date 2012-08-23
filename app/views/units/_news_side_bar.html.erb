@@ -4,7 +4,7 @@
     <div class="top"></div>
     <div class="menu_wrapper">
       <ul class="menu_about">
-        <% @unit.units.each do |unit| %>
+        <% @news.each do |unit| %>
             <li>
               <%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => "new" %>
               <div class="news_list">

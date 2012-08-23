@@ -61,6 +61,7 @@ en:
       welcome:
         more: "More"
         copyright: "© Copyright 2012 DART EXPO"
+        created: "Created by Black Sheep"
         follow: "Follow us on social networks"
       user:
         role: "Role"

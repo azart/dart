@@ -14,6 +14,7 @@ class UnitsController < ApplicationController
     raise NotFound unless @unit
 
      if @unit.layout == "news"
+       @news = Unit.where("parent_id = ? and units.locale = ?", @unit.id, I18n.locale).order("id desc").all
        @covers = UnitImage.includes(:unit).where("units.locale = ? and units.welcome_slider = ? and unit_images.cover = ?", I18n.locale, true, true).all
      end
 
