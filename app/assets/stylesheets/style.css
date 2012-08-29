@@ -1196,11 +1196,8 @@ h1 {
 }
 
 #clients .client {
-    padding: 21px;
     float: left;
-    /*cursor: pointer;*/
-    min-width: 210px;
-    width: auto;
+    width: 210px;
 }
 
 #awards {
@@ -1213,11 +1210,9 @@ h1 {
 }
 
 #awards .award {
-    padding: 21px;
     float: left;
     cursor: pointer;
-    min-width: 190px;
-    width: auto;
+    width: 190px;
 }
 
 .cb-slideshow,
