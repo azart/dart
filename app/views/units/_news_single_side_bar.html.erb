@@ -1,11 +1,11 @@
 <div id="sidebar">
   <div class="description news_title">
-    <h1><%= @unit.title %><%= render "units/admin_panel", :target => @unit %></h1>
+    <h1><%= @unit.super_unit.title %><%= render "units/admin_panel", :target => @unit.super_unit %></h1>
     <div class="top"></div>
     <div class="menu_wrapper">
       <ul class="menu_about">
         <% @news.each do |unit| %>
-            <li>
+            <li <%= "class='current'" if unit == @unit %>>
               <%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => "new" %>
               <div class="news_list">
                 <div class="border_right">

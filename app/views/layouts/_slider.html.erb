@@ -14,8 +14,10 @@
           </div>
         </div>
       </li>
-  <% end %>
+  <% end unless @covers.nil? %>
 </ul>
+
+<% unless @covers.nil? %>
 
 <style type="text/css">
     .cb-slideshow li span {
@@ -77,3 +79,4 @@
     <% end %>
     <% end %>
 </style>
+<% end %>

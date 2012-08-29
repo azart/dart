@@ -18,6 +18,11 @@ class UnitsController < ApplicationController
        @covers = UnitImage.includes(:unit).where("units.locale = ? and units.welcome_slider = ? and unit_images.cover = ?", I18n.locale, true, true).all
      end
 
+     if @unit.layout == "news_single"
+       @news = Unit.where("parent_id = ? and units.locale = ?", @unit.super_unit.id, I18n.locale).order("id desc").all
+       @covers = UnitImage.includes(:unit).where("units.locale = ? and units.welcome_slider = ? and unit_images.cover = ?", I18n.locale, true, true).all
+     end
+
      if @unit.layout == "projects"
        @covers = UnitImage.includes(:unit).where("units.layout = ? and units.locale = ? and unit_images.cover = ?", "project", I18n.locale, true).all
      end
