@@ -4,7 +4,7 @@
     <div class="top"></div>
     <div class="menu_wrapper">
       <ul class="menu_about">
-        <li>
+        <li class="current">
           <%= link_to raw("<span>#{@unit.title}</span>"), unit_by_short_url_path(@unit.short_url), :class => "portfolio" %>
           <div class="news_list">
             <div class="border_right">
@@ -12,6 +12,7 @@
                   <%= image_tag unit_image.image.url(:preview_item), :width => 213, :height => 81 %>
               <% end %>
               <span><%= @unit.created_at.strftime("%d.%m.%Y") %></span>
+              <p><%= raw @unit.description %></p>
               <p><%= raw @unit.content %></p>
               <%= render "units/admin_panel", :target => @unit %>
             </div>
