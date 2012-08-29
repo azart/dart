@@ -483,6 +483,14 @@ h1 {
     border-bottom: 1px solid #fff;
 }
 
+.menu_about li div {
+    display: none;
+}
+
+.menu_about li.current div {
+    display: block !important;
+}
+
 .menu_about li:last-child {
     background: url("bottom.png") no-repeat scroll 0 26px transparent;
     border: none;
@@ -1188,7 +1196,11 @@ h1 {
 }
 
 #clients .client {
-    margin: 13px;
+    margin: 21px;
+    float: left;
+    cursor: pointer;
+    width: 210px;
+
 }
 
 #awards {
@@ -1204,6 +1216,7 @@ h1 {
     margin: 21px;
     float: left;
     cursor: pointer;
+    width: 210px;
 }
 
 .cb-slideshow,

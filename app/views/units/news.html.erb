@@ -25,15 +25,15 @@
 
     function foldItem(index) {
         $(".menu_about li").eq(index).removeClass("current");
-        if ($(".menu_about li").eq(index).find(".news_list").length) {
-            $(".menu_about li").eq(index).find(".news_list").hide("blind");
-        }
+//        if ($(".menu_about li").eq(index).find(".news_list").length) {
+            $(".menu_about li").eq(index).find(".news_list").hide("blind", function (){});
+//        }
     }
 
     function unfoldItem(index) {
         $(".menu_about > li").eq(index).addClass("current");
-        if ($(".menu_about li").eq(index).find(".news_list").length) {
-            $(".menu_about li").eq(index).find(".news_list").show("blind");
-        }
+//        if ($(".menu_about li").eq(index).find(".news_list").length) {
+            $(".menu_about li").eq(index).find(".news_list").show("blind", function (){});
+//        }
     }
 </script>
