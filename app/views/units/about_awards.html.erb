@@ -19,5 +19,11 @@
     $(document).ready(function () {
         awardsWidth = $(window).width() - 380;
         $("#awards").css("width", awardsWidth);
+
+        $(window).resize(function () {
+            awardsWidth = $(window).width() - 380;
+            $("#awards").css("width", awardsWidth);
+        });
+
     });
 </script>
