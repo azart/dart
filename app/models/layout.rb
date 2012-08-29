@@ -28,6 +28,13 @@ class Layout
     false
   end
 
+  def self.by_cut(cut)
+    collection.each do |layout|
+      return layout.name if layout.cut == cut
+    end
+    false
+  end
+
   def initialize(hash)
     self.name = hash[:name]
     self.cut = hash[:cut]

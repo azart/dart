@@ -1,5 +1,5 @@
 <div id="sidebar" style="width: 100%">
-  <ul>
+  <ul class="units_all">
 
     <li>
       <%= link_to "+Создать", new_unit_path %>
@@ -7,14 +7,12 @@
 
     <% @units.each do |unit| %>
         <li>
-          <%= link_to '+Изменить', edit_unit_path(unit) %> :: <%= link_to '-Удалить', unit, confirm: 'Вы уверены?', method: :delete %>
           <strong>
-            <%= unit.title %> :: <%= unit.layout %> :: <%= unit.short_url %>
+            <%= unit.title %>
           </strong>
+          [<%= Layout.by_cut(unit.layout) %>, <%= unit.short_url %>]
 
-          <p>
-            <%= unit.description %>
-          </p>
+          <%= link_to '+Изменить', edit_unit_path(unit) %> :: <%= link_to '-Удалить', unit, confirm: 'Вы уверены?', method: :delete %>
         </li>
     <% end %>
   </ul>

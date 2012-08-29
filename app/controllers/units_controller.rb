@@ -2,7 +2,7 @@ class UnitsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @units = Unit.all
+    @units = Unit.order("layout, id desc")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @units }
