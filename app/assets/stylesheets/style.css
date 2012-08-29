@@ -1198,6 +1198,7 @@ h1 {
 #clients .client {
     float: left;
     width: 210px;
+    margin: 21px;
 }
 
 #awards {
@@ -1213,6 +1214,7 @@ h1 {
     float: left;
     cursor: pointer;
     width: 190px;
+    margin: 21px;
 }
 
 .cb-slideshow,
