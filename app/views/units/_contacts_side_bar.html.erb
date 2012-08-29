@@ -3,6 +3,7 @@
     <h1><%= @unit.title %><%= render "units/admin_panel", :target => @unit %></h1>
     <div class="top"></div>
     <div class="menu_wrapper">
+      <%= raw @unit.description %>
       <%= raw @unit.content %>
       <%= render "layouts/auth" %>
     </div>
