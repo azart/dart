@@ -8,6 +8,7 @@ class Layout
         Layout.new(:name => 'Компания', :cut => "about"),
         Layout.new(:name => 'Компания / О нас', :cut => "about_us"),
         Layout.new(:name => 'Компания / Отзывы', :cut => "about_awards"),
+        Layout.new(:name => 'Компания / Партнеры', :cut => "about_partners"),
         Layout.new(:name => 'Услуги', :cut => "services"),
         Layout.new(:name => 'Услуга', :cut => "service"),
         Layout.new(:name => 'Новости', :cut => "news"),

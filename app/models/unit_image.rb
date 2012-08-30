@@ -7,7 +7,8 @@ class UnitImage < ActiveRecord::Base
                     :styles => {
                         :preview_item => "213x81#",
                         :awards => "170x244#",
-                        :big => "1200x700#"
+                        :big => "1200x700#",
+                        :logo_middle => "190x190>"
                     },
                     :default_url =>  "missing.png",
                     :url =>  "/unit_images/:id/:style_:basename.:extension"

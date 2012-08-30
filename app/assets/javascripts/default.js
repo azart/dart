@@ -19,36 +19,36 @@ $(document).ready(function () {
         });
     }
 
-    if ($('#clients').length > 0) {
-        $('#clients').masonry({
-            itemSelector:'.client'
-//            isAnimated:true,
-//            animationOptions:{
-//                duration:750,
-//                easing:'linear',
-//                queue:false
+    if ($("#sidebar").length > 0) {
+        $(".award-a").fancybox({
+//            prevEffect		: 'none',
+//            nextEffect		: 'none',
+            closeBtn:false
+//            helpers		: {
+//                title	: false,
+//                buttons	: {}
 //            }
         });
     }
 
-    if ($('#awards').length > 0) {
-        $('#awards').masonry({
-            itemSelector:'.award'
-//            isAnimated:true,
-//            animationOptions:{
-//                duration:750,
-//                easing:'linear',
-//                queue:false
-//            }
+    if ($('#clients').length > 0) {
+        $('#clients').masonry({
+            itemSelector:'.client'
+        });
+    }
+
+    if ($('#partners').length > 0) {
+        $('#partners').masonry({
+            itemSelector:'.partner'
         });
     }
 });
 
 function showAwardsImage(url) {
-    $("#awards-big").css("background", "url(" + url + ") no-repeat center center fixed;")
+    $("#awards-big").css("background", "url(" + url + ") no-repeat center center transparent")
     $("#awards-big").show();
     $("#awards-big").click(function () {
         $("#awards-big").hide();
-        $("#awards-big").css("background", "url(default-bg.jpg) no-repeat center center fixed;")
+        $("#awards-big").css("background", "url(default-bg.jpg) no-repeat center center transparent")
     });
 }

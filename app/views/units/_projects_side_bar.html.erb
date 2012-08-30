@@ -51,6 +51,16 @@
                 unfoldItem(index);
             }
         });
+
+        $(".border_right > ul > li > a").click(function (e) {
+            e.preventDefault();
+
+            if ($(this).next().css("display") != "block") {
+                $(this).next().css("display", "block");
+            } else {
+                $(this).next().css("display", "none");
+            }
+        });
     });
 
     function foldAllItems() {

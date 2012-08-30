@@ -781,9 +781,9 @@ h1 {
     display: none;
 }
 
-.menu_about ul li:hover ul {
-    display: block;
-}
+/*.menu_about ul li:hover ul {*/
+    /*display: block;*/
+/*}*/
 
 .menu_about ul li ul li {
     padding: 0 0 0 5px;
@@ -1187,19 +1187,35 @@ h1 {
 }
 
 #clients {
+    /*float: right;*/
+    /*height: 100%;*/
     margin: 89px 34px;
-
-    min-width: 900px;
     min-height: 450px;
-
-    width: 100%;
-    height: 100%;
+    min-width: 900px;
 }
 
 #clients .client {
     float: left;
     width: 210px;
-    margin: 21px;
+}
+
+#partners {
+    /*float: right;*/
+    /*height: 100%;*/
+    margin: 89px 34px 89px 355px;
+    min-height: 450px;
+    min-width: 450px;
+    /*width: auto;*/
+}
+
+#partners .partner {
+    float: left;
+    width: 210px;
+}
+
+#clients .client {
+    float: left;
+    width: 210px;
 }
 
 #awards {
@@ -1215,7 +1231,7 @@ h1 {
     float: left;
     cursor: pointer;
     width: 190px;
-    margin: 21px;
+    margin: 21px 0 21px 34px;
 }
 
 .cb-slideshow,
@@ -1453,16 +1469,14 @@ h1 {
 }
 
 #awards-big {
-    display: none;
 
+    display: none;
     z-index: 21000;
 
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
 
-    width: 100%;
-    height: 100%;
+    top: 0;
+    /*left: 0;*/
 
     background: url(default-bg.jpg) no-repeat center center fixed;
     -webkit-background-size: auto;
@@ -1470,6 +1484,22 @@ h1 {
     -o-background-size: auto;
     background-size: auto;
     cursor: pointer;
+
+
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
 }
 
 ul li ul li {
@@ -1478,4 +1508,14 @@ ul li ul li {
 
 .units_all li {
     height: 34px;
+}
+
+#bg {
+    position:fixed;
+    top:0;
+    left:0;
+
+    /* Preserve aspet ratio */
+    min-width:100%;
+    min-height:100%;
 }

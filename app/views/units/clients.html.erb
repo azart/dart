@@ -1,7 +1,7 @@
 <div id="clients">
   <% @unit.unit_images.each do |cover| %>
       <div class="client">
-        <%= image_tag cover.image.url(:original), :alt => cover.title %>
+        <%= image_tag cover.image.url(:logo_middle), :alt => cover.title %>
       </div>
   <% end %>
   <% if can?(Unit, :edit) %>
