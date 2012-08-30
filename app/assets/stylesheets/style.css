@@ -1447,6 +1447,10 @@ h1 {
     opacity: 1;
 }
 
+.cb-slideshow li:first-child span {
+    opacity: 1;
+}
+
 .sl-descr {
     float: right;
     z-index: 1000;
