@@ -636,6 +636,10 @@ h1 {
     margin-bottom: 0 !important;
 }
 
+.border_right img {
+    cursor: pointer;
+}
+
 .order_title {
     color: #00a8ff;
 }
