@@ -12,7 +12,7 @@ class WelcomesController < ApplicationController
   # GET /welcomes.json
   def index
     @last_news = Unit.where(:locale => I18n.locale).where("parent_id = ? OR parent_id = ?", 99, 52).order("created_at DESC").first
-    @covers = UnitImage.includes(:unit).where("units.locale = ? and units.welcome_slider = ? and unit_images.cover = ?", I18n.locale, true, true).order("random ()")
+    @covers = UnitImage.includes(:unit).where("units.locale = ? and units.welcome_slider = ? and unit_images.cover = ?", I18n.locale, true, true).order("random ()").all
     respond_to do |format|
       format.html
       format.json { render json: @welcomes }

@@ -1,25 +1,33 @@
-<ul class="cb-slideshow">
-  <% delay = 13 %>
+<% unless @covers.nil? %>
+    <ul class="cb-slideshow">
+      <% delay = 8 %>
 
-  <% @covers.each do |cover| %>
-      <li>
+      <% @covers.each do |cover| %>
+          <li>
             <span>
               <%= "#{cover.unit.title} #{cover.title}" %>
             </span>
 
-        <div class="sl-descr<%= " info_#{@unit.super_unit.layout}" unless @unit.nil? %>">
-          <%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(cover.unit.short_url), :class => "more" %>
-          <div class="title_info">
-            <%= "#{cover.unit.title} #{cover.title}" %>
-          </div>
-        </div>
-      </li>
-  <% end unless @covers.nil? %>
-</ul>
-
-<% unless @covers.nil? %>
+            <div class="sl-descr<%= " info_#{@unit.super_unit.layout}" unless @unit.nil? %>">
+              <%= link_to t("activerecord.attributes.unit.more"), unit_by_short_url_path(cover.unit.short_url), :class => "more" %>
+              <div class="title_info">
+                <%= "#{cover.unit.title} #{cover.title}" %>
+              </div>
+            </div>
+          </li>
+      <% end %>
+    </ul>
 
 <style type="text/css">
+    .cb-slideshow,
+    .cb-slideshow:after {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 0;
+    }
     .cb-slideshow li span {
         width: 100%;
         height: 100%;
@@ -30,14 +38,14 @@
         background-size: cover;
         background-position: 50% 50%;
         background-repeat: none;
-        opacity: 0;
         z-index: 0;
         -webkit-backface-visibility: hidden;
-        -webkit-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        -moz-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        -o-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        -ms-animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        animation: imageAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -webkit-animation: imageAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        -moz-animation: imageAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        -o-animation: imageAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        -ms-animation: imageAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        animation: imageAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        opacity: 0;
     }
 
     .cb-slideshow li .sl-descr {
@@ -47,36 +55,91 @@
         right: 0;
         text-align: right;
         opacity: 0;
-        -webkit-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        -moz-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        -o-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        -ms-animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
-        animation: titleAnimation <%= @covers.count*delay %>s linear infinite 0s;
+        -webkit-animation: titleAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        -moz-animation: titleAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        -o-animation: titleAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        -ms-animation: titleAnimation <%= @covers.size*delay %>s linear infinite 0s;
+        animation: titleAnimation <%= @covers.size*delay %>s linear infinite 0s;
     }
 
     <% @covers.each_with_index do |cover, i| %>
-    .cb-slideshow li:nth-child(<%= i+1 %>) span {
-        background-image: url(<%= cover.image.url(:big)%>);
-    <% if i > 0 %> -webkit-animation-delay: <%= (i)*delay %>s;
-        -moz-animation-delay: <%= (i)*delay %>s;
-        -o-animation-delay: <%= (i)*delay %>s;
-        -ms-animation-delay: <%= (i)*delay %>s;
-        animation-delay: <%= (i)*delay %>s;
+        .cb-slideshow li:nth-child(<%= i+1 %>) span {
+            background-image: url(<%= cover.image.url(:big)%>);
+            <% if i > 0 %>
+                -webkit-animation-delay: <%= (i)*delay %>s;
+                -moz-animation-delay: <%= (i)*delay %>s;
+                -o-animation-delay: <%= (i)*delay %>s;
+                -ms-animation-delay: <%= (i)*delay %>s;
+                animation-delay: <%= (i)*delay %>s;
+            <% end %>
+        }
     <% end %>
-    }
 
-    <% end %>
     <% @covers.each_with_index do |cover, i| %>
-    <% if i > 0 %>
-    .cb-slideshow li:nth-child(<%= i+1 %>) .sl-descr {
-        -webkit-animation-delay: <%= (i)*delay %>s;
-        -moz-animation-delay: <%= (i)*delay %>s;
-        -o-animation-delay: <%= (i)*delay %>s;
-        -ms-animation-delay: <%= (i)*delay %>s;
-        animation-delay: <%= (i)*delay %>s;
+        <% if i > 0 %>
+        .cb-slideshow li:nth-child(<%= i+1 %>) .sl-descr {
+            -webkit-animation-delay: <%= (i)*delay %>s;
+            -moz-animation-delay: <%= (i)*delay %>s;
+            -o-animation-delay: <%= (i)*delay %>s;
+            -ms-animation-delay: <%= (i)*delay %>s;
+            animation-delay: <%= (i)*delay %>s;
+        }
+        <% end %>
+    <% end %>
+
+    <% ["imageAnimation", "titleAnimation"].each do |animation| %>
+    <% ["@-webkit-keyframes", "@-moz-keyframes", "@-o-keyframes", "@-ms-keyframes", "@keyframes"].each do |keyframe| %>
+    <% if !@covers.nil? && @covers.size > 0 && animation == "imageAnimation" %>
+    <%= "#{keyframe} #{animation}" %> {
+    0% {
+        opacity: 0;
+        -webkit-animation-timing-function: ease-in;
     }
+    <%= (50.to_f/@covers.size.to_f).round(0) %>% {
+        opacity: 1;
+        -webkit-transform: scale(1.01);
+        -webkit-animation-timing-function: ease-out;
+    }
+    <%= (100.to_f/@covers.size.to_f).round(0) %>% {
+        opacity: 1;
+        -webkit-transform: scale(1.02);
+    }
+    <%= (150.to_f/@covers.size.to_f).round(0) %>% {
+        opacity: 0;
+        -webkit-transform: scale(1.03);
+    }
+    100% {
+        opacity: 0;
+    }
+        }
+    <% end %>
+
+    <% if !@covers.nil? && @covers.size > 0 && animation == "titleAnimation" %>
+    <%= "#{keyframe} #{animation}" %>  {
+    0% {
+        opacity: 0;
+        z-index: 1000;
+    }
+    <%= (50.to_f/@covers.size.to_f).round(0) %>% {
+        opacity: 1;
+        z-index: 1005;
+    }
+    <%= (100.to_f/@covers.size.to_f).round(0) %>% {
+        opacity: 1;
+        z-index: 1005;
+    }
+    <%= (150.to_f/@covers.size.to_f).round(0) %>% {
+        opacity: 0;
+        z-index: 1000;
+    }
+    100% {
+        opacity: 0;
+    }
+        }
+    <% end %>
 
     <% end %>
     <% end %>
+
 </style>
 <% end %>
