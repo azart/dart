@@ -1447,7 +1447,7 @@ h1 {
     opacity: 1;
 }
 
-.cb-slideshow li:first-child span {
+.cb-slideshow li:last-child span {
     opacity: 1;
 }
 
