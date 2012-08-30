@@ -710,18 +710,18 @@ h1 {
 }
 
 /*.button {*/
-    /*background: url(send.png) no-repeat;*/
-    /*width: 99px;*/
-    /*height: 30px;*/
-    /*text-indent: -9999px;*/
-    /*border: 0;*/
-    /*float: right;*/
-    /*margin: 8px 5px 0 0;*/
-    /*cursor: pointer;*/
+/*background: url(send.png) no-repeat;*/
+/*width: 99px;*/
+/*height: 30px;*/
+/*text-indent: -9999px;*/
+/*border: 0;*/
+/*float: right;*/
+/*margin: 8px 5px 0 0;*/
+/*cursor: pointer;*/
 /*}*/
 
 /*.button:hover {*/
-    /*background: url(send.png) no-repeat 0 -30px;*/
+/*background: url(send.png) no-repeat 0 -30px;*/
 /*}*/
 
 .poap img {
@@ -782,7 +782,7 @@ h1 {
 }
 
 /*.menu_about ul li:hover ul {*/
-    /*display: block;*/
+/*display: block;*/
 /*}*/
 
 .menu_about ul li ul li {
@@ -1162,7 +1162,6 @@ h1 {
     height: 89px;
 }
 
-
 .devise form input[type="submit"], .actions input[type="submit"] {
     -webkit-border-radius: 21px;
     border-radius: 21px;
@@ -1352,15 +1351,13 @@ h1 {
 	    opacity: 1;
 	}
 	17% {
-	    opacity: 0;
+        z-index: 2000;
+	    opacity: 1;
 	}
-	19% {
-	    opacity: 0;
-	    	    z-index: 2000;
-	}
-	25% { opacity: 0;
-	 	    z-index: 1000;
-}
+	25% {
+        opacity: 0;
+        z-index: 1000;
+    }
 	100% { opacity: 0 }
 }
 @-moz-keyframes titleAnimation {
@@ -1371,15 +1368,13 @@ h1 {
 	    opacity: 1;
 	}
 	17% {
-	    opacity: 0;
-	}
-	19% {
-	    opacity: 0;
+	    opacity: 1;
 	    z-index: 2000;
 	}
-	25% { opacity: 0;
-	 	    z-index: 1000;
-}
+	25% {
+        opacity: 0;
+        z-index: 1000;
+    }
 	100% { opacity: 0 }
 }
 @-o-keyframes titleAnimation {
@@ -1390,16 +1385,13 @@ h1 {
 	    opacity: 1;
 	}
 	17% {
-	    opacity: 0;
-	}
-	19% {
-	    opacity: 0;
+	    opacity: 1;
   	    z-index: 2000;
-
 	}
-	25% { opacity: 0;
-	 	    z-index: 1000;
-}
+	25% {
+        opacity: 0;
+        z-index: 1000;
+    }
 	100% { opacity: 0 }
 }
 @-ms-keyframes titleAnimation {
@@ -1410,15 +1402,13 @@ h1 {
 	    opacity: 1;
 	}
 	17% {
-	    opacity: 0;
+	    opacity: 1;
+        z-index: 2000;
 	}
-	19% {
-	    opacity: 0;
-	    	    z-index: 2000;
-	}
-	25% { opacity: 0;
-	    z-index: 1000;
-	 }
+	25% {
+        opacity: 0;
+        z-index: 1000;
+    }
 	100% { opacity: 0 }
 }
 @keyframes titleAnimation {
@@ -1429,12 +1419,8 @@ h1 {
 	    opacity: 1;
 	}
 	17% {
-	    opacity: 0;
-	}
-	19% {
-	    opacity: 0;
-  	    z-index: 2000;
-
+	    opacity: 1;
+        z-index: 2000;
 	}
 	25% {
 	opacity: 0;
@@ -1489,7 +1475,6 @@ h1 {
     background-size: auto;
     cursor: pointer;
 
-
     /* Set rules to fill background */
     min-height: 100%;
     min-width: 1024px;
@@ -1503,7 +1488,6 @@ h1 {
     top: 0;
     left: 0;
 
-
 }
 
 ul li ul li {
@@ -1515,11 +1499,11 @@ ul li ul li {
 }
 
 #bg {
-    position:fixed;
-    top:0;
-    left:0;
+    position: fixed;
+    top: 0;
+    left: 0;
 
     /* Preserve aspet ratio */
-    min-width:100%;
-    min-height:100%;
+    min-width: 100%;
+    min-height: 100%;
 }
