@@ -3,7 +3,7 @@
 
   <% @covers.each do |cover| %>
       <li>
-            <span>
+            <span class="<%= "slider-first" if cover == @covers.first %>">
               <%= "#{cover.unit.title} #{cover.title}" %>
             </span>
 

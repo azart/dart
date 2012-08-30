@@ -13,21 +13,13 @@ $(document).ready(function () {
         sidebarHeight = $(window).height() - 140;
         $("#sidebar").css("height", sidebarHeight);
 
+        $(".award-a").fancybox({
+            closeBtn:false
+        });
+
         $(window).resize(function () {
             sidebarHeight = $(window).height() - 140;
             $("#sidebar").css("height", sidebarHeight)
-        });
-    }
-
-    if ($("#sidebar").length > 0) {
-        $(".award-a").fancybox({
-//            prevEffect		: 'none',
-//            nextEffect		: 'none',
-            closeBtn:false
-//            helpers		: {
-//                title	: false,
-//                buttons	: {}
-//            }
         });
     }
 
@@ -43,12 +35,3 @@ $(document).ready(function () {
         });
     }
 });
-
-function showAwardsImage(url) {
-    $("#awards-big").css("background", "url(" + url + ") no-repeat center center transparent")
-    $("#awards-big").show();
-    $("#awards-big").click(function () {
-        $("#awards-big").hide();
-        $("#awards-big").css("background", "url(default-bg.jpg) no-repeat center center transparent")
-    });
-}

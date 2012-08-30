@@ -17,14 +17,14 @@
 
     jQuery(function () {
         $(document).mousemove(function (e) {
-            if (e.pageX <= 300 && SIDEBAR_HIDDEN) {
+            if (e.pageX <= 210 && SIDEBAR_HIDDEN) {
                 $("#sidebar").animate({
                     "left":"+=400px"
                 }, "slow");
                 SIDEBAR_HIDDEN = false;
             }
 
-            if (e.pageX >= 300 && !SIDEBAR_HIDDEN) {
+            if (e.pageX >= 380 && !SIDEBAR_HIDDEN) {
                 $("#sidebar").animate({
                     "left":"-=400px"
                 }, "slow");
