@@ -4,11 +4,13 @@
   <% @unit.unit_images.each do |cover| %>
       <div class="award">
         <%= link_to image_tag(cover.image.url(:awards), :alt => cover.title), cover.image.url(), :class => "award-a" %>
-        <% if can?(Unit, :edit) %>
-            <%= render "units/admin_panel", :target => @unit %>
-        <% end %>
       </div>
   <% end %>
+  <div class="award">
+    <% if can?(:edit, Unit) %>
+        <%= render "units/admin_panel", :target => @unit %>
+    <% end %>
+  </div>
 </div>
 
 <script type="text/javascript">

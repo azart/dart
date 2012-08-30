@@ -9,7 +9,7 @@
               <%= link_to raw("<span>#{unit.title}</span>"), unit_by_short_url_path(unit.short_url), :class => "new" %>
               <div class="news_list">
                 <div class="border_right">
-                  <%= image_tag unit.get_preview.image(:preview_item), :width => 213, :height => 81, :alt => unit.title %>
+                  <%= image_tag unit.get_preview.image(:preview_item), :width => 213, :height => 81, :alt => unit.title, :onclick => "setBackgroundImage('#{unit.get_preview.image(:preview_item)}')" %>
                   <span><%= unit.created_at.strftime("%d.%m.%Y") %></span>
                   <p><%= raw unit.content %></p>
                   <%= render "units/admin_panel", :target => unit %>

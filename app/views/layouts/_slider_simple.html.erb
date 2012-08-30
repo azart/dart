@@ -1,44 +1,87 @@
-<ul class="cb-slideshow">
-  <% delay = 13 %>
-  <% @unit.unit_images.each do |cover| %>
-      <li>
+<% if !@unit.unit_images.nil? && @unit.unit_images.size > 1 %>
+    <ul class="cb-slideshow">
+      <% delay = 8 %>
+
+      <% @unit.unit_images.each do |cover| %>
+          <li>
             <span>
               <%= "#{cover.unit.title} #{cover.title}" %>
             </span>
-      </li>
-  <% end %>
-</ul>
+          </li>
+      <% end %>
+    </ul>
 
-<style type="text/css">
-    .cb-slideshow li span {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        color: transparent;
-        background-size: cover;
-        background-position: 50% 50%;
-        background-repeat: none;
-        opacity: 0;
-        z-index: 0;
-        -webkit-backface-visibility: hidden;
-        -webkit-animation: imageAnimation <%= @unit.unit_images.count*delay %>s linear infinite 0s;
-        -moz-animation: imageAnimation <%= @unit.unit_images.count*delay %>s linear infinite 0s;
-        -o-animation: imageAnimation <%= @unit.unit_images.count*delay %>s linear infinite 0s;
-        -ms-animation: imageAnimation <%= @unit.unit_images.count*delay %>s linear infinite 0s;
-        animation: imageAnimation <%= @unit.unit_images.count*delay %>s linear infinite 0s;
-    }
+    <style type="text/css">
+        .cb-slideshow,
+        .cb-slideshow:after {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: 0;
+        }
+        .cb-slideshow li span {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            color: transparent;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: none;
+            z-index: 0;
+            -webkit-backface-visibility: hidden;
+            -webkit-animation: imageAnimation <%= @unit.unit_images.size*delay %>s linear infinite 0s;
+            -moz-animation: imageAnimation <%= @unit.unit_images.size*delay %>s linear infinite 0s;
+            -o-animation: imageAnimation <%= @unit.unit_images.size*delay %>s linear infinite 0s;
+            -ms-animation: imageAnimation <%= @unit.unit_images.size*delay %>s linear infinite 0s;
+            animation: imageAnimation <%= @unit.unit_images.size*delay %>s linear infinite 0s;
+            opacity: 0;
+        }
+        <% @unit.unit_images.each_with_index do |cover, i| %>
+        .cb-slideshow li:nth-child(<%= i+1 %>) span {
+            background-image: url(<%= cover.image.url(:big)%>);
+        <% if i > 0 %>
+            -webkit-animation-delay: <%= (i)*delay %>s;
+            -moz-animation-delay: <%= (i)*delay %>s;
+            -o-animation-delay: <%= (i)*delay %>s;
+            -ms-animation-delay: <%= (i)*delay %>s;
+            animation-delay: <%= (i)*delay %>s;
+        <% end %>
+        }
+        <% end %>
 
-    <% @unit.unit_images.each_with_index do |cover, i| %>
-    .cb-slideshow li:nth-child(<%= i+1 %>) span {
-        background-image: url(<%= cover.image.url(:big)%>);
-    <% if i > 0 %> -webkit-animation-delay: <%= (i)*delay %>s;
-        -moz-animation-delay: <%= (i)*delay %>s;
-        -o-animation-delay: <%= (i)*delay %>s;
-        -ms-animation-delay: <%= (i)*delay %>s;
-        animation-delay: <%= (i)*delay %>s;
-    <% end %>
-    }
-    <% end %>
-</style>
+        <% ["imageAnimation"].each do |animation| %>
+        <% ["@-webkit-keyframes", "@-moz-keyframes", "@-o-keyframes", "@-ms-keyframes", "@keyframes"].each do |keyframe| %>
+        <% if !@unit.unit_images.nil? && @unit.unit_images.size > 0 && animation == "imageAnimation" %>
+        <%= "#{keyframe} #{animation}" %> {
+        0% {
+            opacity: 0;
+            -webkit-animation-timing-function: ease-in;
+        }
+        <%= (50.to_f/@unit.unit_images.size.to_f).round(0) %>% {
+            opacity: 1;
+            -webkit-transform: scale(1.01);
+            -webkit-animation-timing-function: ease-out;
+        }
+        <%= (100.to_f/@unit.unit_images.size.to_f).round(0) %>% {
+            opacity: 1;
+            -webkit-transform: scale(1.02);
+        }
+        <%= (150.to_f/@unit.unit_images.size.to_f).round(0) %>% {
+            opacity: 0;
+            -webkit-transform: scale(1.03);
+        }
+        100% {
+            opacity: 0;
+        }
+            }
+        <% end %>
+
+        <% end %>
+        <% end %>
+
+    </style>
+<% end %>

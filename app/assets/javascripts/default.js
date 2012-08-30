@@ -35,3 +35,8 @@ $(document).ready(function () {
         });
     }
 });
+
+function setBackgroundImage(url) {
+    $("body").css("background-image", "url('" + url + "')");
+    $(".cb-slideshow").remove();
+}

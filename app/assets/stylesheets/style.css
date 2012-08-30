@@ -1222,15 +1222,15 @@ h1 {
     min-height: 450px;
 
     margin: 89px 34px 89px 340px;
-    width: 100%;
+    /*width: 100%;*/
     height: 100%;
 }
 
 #awards .award {
-    float: left;
     cursor: pointer;
+    float: left;
+    margin: 34px;
     width: 190px;
-    margin: 21px 0 21px 34px;
 }
 
 /* Show at least something when animations not supported */
