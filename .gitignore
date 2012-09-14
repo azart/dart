@@ -14,3 +14,9 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+.idea
+public/unit_images
+Gemfile.lock
+db/schema.rb
+
