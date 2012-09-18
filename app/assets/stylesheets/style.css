@@ -550,7 +550,7 @@ h1 {
 .description {
     float: left;
     width: 100%;
-    margin-top: 86px;
+    margin-top: 25px;
 }
 
 .description p {
@@ -1192,15 +1192,15 @@ h1 {
 #clients {
     /*float: right;*/
     /*height: 100%;*/
-    margin: 89px 34px;
+    padding: 89px 34px;
     min-height: 450px;
+    height: 100% !important;
     min-width: 900px;
+    overflow-y: auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.87);
 }
 
-#clients .client {
-    float: left;
-    width: 210px;
-}
 
 #partners {
     /*float: right;*/
@@ -1217,8 +1217,13 @@ h1 {
 }
 
 #clients .client {
-    float: left;
     width: 210px;
+    position: static !important;
+    left: 0 !important;
+    top: 0 !important;
+    display: inline-block;
+    margin: 20px;
+    vertical-align: middle;
 }
 
 #awards {
@@ -1234,7 +1239,8 @@ h1 {
     cursor: pointer;
     float: left;
     margin: 34px;
-    width: 190px;
+    /*width: 190px;*/
+    border: 3px solid #FF1119;
 }
 
 /* Show at least something when animations not supported */
